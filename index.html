@@ -1,0 +1,411 @@
+<!doctype html>
+<html lang="cs">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="SVJ Mahlerova 1948/1, Jihlava: hospodaření 2022–2026 z bankovního účtu a historie společenství od roku 1997.">
+<title>SVJ Mahlerova 1</title>
+<link rel="icon" href="data:image/svg+xml,<svg viewBox='0 0 64 64' xmlns='http://www.w3.org/2000/svg'><circle cx='32' cy='32' r='31' fill='%231663a8'/><path d='M14 31 32 16l18 15v18H14Z' fill='%23fff'/><rect x='21' y='34' width='7' height='7' fill='%231663a8'/><rect x='36' y='34' width='7' height='7' fill='%231663a8'/></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=Source+Sans+3:wght@400;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0}
+/* Layout: blue header band with a house icon, then one reading column; history as a waypoint trail */
+:root {
+  --bg: #f4f7fb; --surface: #e3ecf6; --ink: #0f2236; --muted: #4d6177; --line: #c7d5e4;
+  --accent: #1663a8; --accent-deep: #0f4275; --accent-soft: #dae7f5;
+  --band: #1663a8; --band-deep: #0f4275; --on-band: #ffffff; --on-band-muted: #cfe0f2;
+  --income: #2a78d6; --expense: #eb6834; --grid: #dbe4ee;
+  --display: "Bricolage Grotesque", "Segoe UI", system-ui, sans-serif;
+  --body: "Source Sans 3", "Segoe UI", system-ui, sans-serif;
+  --mono: "IBM Plex Mono", ui-monospace, Consolas, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0b1622; --surface: #12233a; --ink: #e3ecf6; --muted: #94a9c0; --line: #22374f;
+    --accent: #62a8ea; --accent-deep: #9cc9f3; --accent-soft: #14304e;
+    --band: #134f8a; --band-deep: #0b2f55; --on-band: #ffffff; --on-band-muted: #b9d2ec;
+    --income: #3987e5; --expense: #d95926; --grid: #1c3047; color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #0b1622; --surface: #12233a; --ink: #e3ecf6; --muted: #94a9c0; --line: #22374f;
+  --accent: #62a8ea; --accent-deep: #9cc9f3; --accent-soft: #14304e;
+  --band: #134f8a; --band-deep: #0b2f55; --on-band: #ffffff; --on-band-muted: #b9d2ec;
+  --income: #3987e5; --expense: #d95926; --grid: #1c3047; color-scheme: dark;
+}
+
+body { background: var(--bg); color: var(--ink); font: 400 1.08rem/1.6 var(--body); }
+.gutter { padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
+.wrap { box-sizing: content-box; max-width: 50rem; margin: 0 auto; padding-block: 3rem 4rem; display: grid; grid-template-columns: minmax(0, 1fr); gap: 3.5rem; }
+h1, h2, h3 { font-family: var(--display); line-height: 1.15; text-wrap: balance; margin: 0; }
+h1 { font-size: clamp(1.8rem, 8vw, 3.4rem); font-weight: 700; letter-spacing: -0.02em; }
+h2 { font-size: 1.6rem; font-weight: 700; }
+h3 { font-size: 1.12rem; font-weight: 700; }
+p { margin: 0; max-width: 65ch; }
+.mono, .num { font-family: var(--mono); font-size: 0.88em; }
+.num { font-variant-numeric: tabular-nums; }
+section { display: grid; gap: 1.1rem; min-width: 0; }
+.label { font-family: var(--mono); font-size: 0.75rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); font-weight: 500; }
+.muted { color: var(--muted); }
+.note { font-size: 0.92rem; color: var(--muted); }
+
+/* header band */
+.band { background: linear-gradient(180deg, var(--band) 0%, var(--band-deep) 100%); color: var(--on-band); border-bottom: 4px solid var(--accent-soft); }
+.band-in { max-width: 50rem; margin: 0 auto; padding-block: 2.6rem 2.4rem; display: grid; grid-template-columns: minmax(0, 1fr); gap: 1.2rem; }
+.brand { display: flex; align-items: center; gap: 1rem; }
+.brand > div { min-width: 0; }
+.brand svg { width: clamp(3.4rem, 12vw, 4.6rem); height: auto; flex: none; filter: drop-shadow(0 2px 4px rgb(0 0 0 / .25)); }
+.band .label { color: var(--on-band-muted); }
+.band .lede { font-size: 1.22rem; }
+.band .lede-sub { color: var(--on-band-muted); }
+.band nav { display: flex; flex-wrap: wrap; gap: 0.5rem 1.2rem; font-family: var(--mono); font-size: 0.85rem; }
+.band nav a { color: var(--on-band); text-decoration: none; border-bottom: 1px solid var(--on-band-muted); }
+
+/* stat tiles */
+.tiles { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 1px; background: var(--line); border: 1px solid var(--line); }
+.tile { background: var(--bg); padding: 1rem 1.1rem; display: grid; gap: 0.15rem; align-content: start; min-width: 0; }
+.tile .v { font-family: var(--display); font-weight: 700; font-size: clamp(1.25rem, 4vw, 1.7rem); font-variant-numeric: tabular-nums; white-space: nowrap; }
+.tile .k { font-size: 0.88rem; color: var(--muted); }
+@media (max-width: 640px) { .tiles { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+
+/* charts */
+.chart { position: relative; background: var(--surface); border-radius: 10px; padding: 1rem 1rem 0.6rem; min-width: 0; }
+.chart svg { display: block; width: 100%; height: auto; overflow: visible; }
+.chart text { font-family: var(--mono); font-size: 11px; fill: var(--muted); }
+.chart .val { fill: var(--ink); font-size: 11px; }
+.legend { display: flex; flex-wrap: wrap; gap: 0.3rem 1.2rem; font-size: 0.9rem; color: var(--muted); margin-bottom: 0.4rem; }
+.legend i { display: inline-block; width: 12px; height: 12px; border-radius: 3px; margin-right: 0.4rem; vertical-align: -1px; }
+.tip { position: absolute; pointer-events: none; background: var(--bg); color: var(--ink); border: 1px solid var(--line); border-radius: 8px; padding: 0.45rem 0.65rem; font-size: 0.85rem; line-height: 1.4; box-shadow: 0 4px 14px rgb(0 0 0 / .15); opacity: 0; transition: opacity .1s; white-space: nowrap; z-index: 2; }
+.tip b { font-family: var(--mono); font-weight: 500; }
+.hit { fill: transparent; cursor: default; }
+.hit:hover + .hl, .bar.on { opacity: .8; }
+
+/* tables */
+.tbl-wrap { overflow-x: auto; border: 1px solid var(--line); border-radius: 10px; }
+table { border-collapse: collapse; width: 100%; font-size: 0.92rem; }
+th, td { padding: 0.45rem 0.7rem; text-align: right; white-space: nowrap; border-bottom: 1px solid var(--line); }
+th:first-child, td:first-child { text-align: left; }
+thead th { font-family: var(--mono); font-size: 0.75rem; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); font-weight: 500; background: var(--surface); }
+td { font-family: var(--mono); font-variant-numeric: tabular-nums; font-size: 0.85rem; }
+td:first-child { font-family: var(--body); font-size: 0.95rem; }
+tr.sum td { font-weight: 600; border-top: 2px solid var(--line); }
+tr.grp td { background: var(--surface); font-family: var(--mono); font-size: 0.75rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--accent); }
+tbody tr:last-child td { border-bottom: 0; }
+
+/* findings */
+.checks { margin: 0; padding: 0; list-style: none; display: grid; gap: 0.9rem; }
+.checks li { display: grid; grid-template-columns: 1.4rem minmax(0, 1fr); gap: 0.6rem; }
+.checks li::before { content: ""; width: 0.7rem; height: 0.7rem; margin-top: 0.5rem; border-radius: 50%; background: var(--accent); }
+
+/* history as a trail of waypoints */
+.trail { list-style: none; margin: 0; padding: 0; display: grid; }
+.trail li { position: relative; display: grid; grid-template-columns: 6.8rem minmax(0, 1fr); gap: 1rem; padding-bottom: 1.4rem; }
+.trail li::before { content: ""; position: absolute; left: 6.8rem; margin-left: 0.5rem; top: 0.45rem; width: 0.8rem; height: 0.8rem; border-radius: 50%; border: 2px solid var(--accent); background: var(--bg); z-index: 1; transform: translateX(-50%); }
+.trail li:not(:last-child)::after { content: ""; position: absolute; left: calc(6.8rem + 0.5rem - 1px); top: 1.3rem; bottom: 0; border-left: 2px dashed var(--line); }
+.trail li.key::before { background: var(--accent); }
+.trail .when { font-family: var(--mono); font-size: 0.82rem; white-space: nowrap; color: var(--accent-deep); padding-top: 0.15rem; text-align: right; padding-right: 0.4rem; }
+.trail .what { display: grid; gap: 0.2rem; padding-left: 1.1rem; min-width: 0; }
+.trail .src { font-family: var(--mono); font-size: 0.75rem; color: var(--muted); }
+.era { font-family: var(--display); font-weight: 700; font-size: 1.1rem; margin: 0.6rem 0 1rem; color: var(--accent-deep); }
+@media (max-width: 520px) {
+  .trail li { grid-template-columns: minmax(0, 1fr); gap: 0.1rem; padding-left: 1.6rem; }
+  .trail li::before { left: 0; margin-left: 0.4rem; }
+  .trail li:not(:last-child)::after { left: calc(0.4rem - 1px); }
+  .trail .when { text-align: left; }
+  .trail .what { padding-left: 0; }
+}
+footer { font-size: 0.9rem; color: var(--muted); display: grid; gap: 0.4rem; }
+</style>
+</head>
+<body>
+<header class="band gutter">
+  <div class="band-in">
+    <div class="brand">
+      <svg viewBox="0 0 64 64" aria-hidden="true"><circle cx="32" cy="32" r="31" fill="#fff"/><circle cx="32" cy="32" r="28.5" fill="#1663a8"/><path d="M14 31 32 16l18 15v18H14Z" fill="#fff"/><rect x="21" y="34" width="7" height="7" fill="#1663a8"/><rect x="36" y="34" width="7" height="7" fill="#1663a8"/><rect x="29" y="23" width="6" height="6" fill="#1663a8"/></svg>
+      <div>
+        <div class="label">Společenství vlastníků jednotek · IČ 262 68 108</div>
+        <h1>SVJ Mahlerova 1</h1>
+      </div>
+    </div>
+    <p class="lede">Bytový dům Mahlerova 1948/1 v Jihlavě: 15 bytů, přibližně 935 m² podlahové plochy.</p>
+    <p class="lede-sub">Hospodaření z výpisu účtu Fio 2701336622 (únor 2022 – říjen 2026) a historie společenství sestavená z archivu dokumentů.</p>
+    <nav><a href="#hospodareni">Hospodaření</a><a href="#prijmy">Příjmy</a><a href="#vydaje">Výdaje</a><a href="#historie">Historie</a></nav>
+  </div>
+</header>
+
+<main class="wrap gutter">
+
+<section id="hospodareni">
+  <div class="label">Hospodaření 2/2022 – 10/2026</div>
+  <h2>Za čtyři a půl roku prošlo účtem 2,86 mil. Kč příjmů</h2>
+  <p>Víc než polovinu všech výdajů (56 %) spolkla regenerace domu z programu Nová zelená úsporám. Dotace pokryla 48 % její ceny, zbytek se zaplatil z fondu oprav, a proto zůstatek účtu od roku 2023 klesá.</p>
+  <div class="tiles" id="tiles"></div>
+  <div class="chart">
+    <div class="legend"><span><i style="background:var(--income)"></i>Příjmy</span><span><i style="background:var(--expense)"></i>Výdaje</span></div>
+    <svg id="ch-years" role="img" aria-label="Roční příjmy a výdaje 2022–2026"></svg>
+    <div class="tip"></div>
+  </div>
+  <p class="note">Rok 2022 začíná až 1. 2. 2022, rok 2026 končí 22. 10. 2026. Příjmy roku 2024 obsahují dotaci SFŽP 855 090 Kč.</p>
+
+  <h3>Změna zůstatku účtu od 1. 2. 2022</h3>
+  <div class="chart">
+    <svg id="ch-cum" role="img" aria-label="Kumulativní změna zůstatku účtu"></svg>
+    <div class="tip"></div>
+  </div>
+  <p class="note">Počáteční zůstatek ve výpisu není, graf proto ukazuje jen součet pohybů. Stojí za to doplnit zůstatek k 1. 2. 2022 z výpisu Fio.</p>
+</section>
+
+<section id="prijmy">
+  <div class="label">Příjmy</div>
+  <h2>Příspěvky vlastníků vzrostly o dvě třetiny</h2>
+  <p>Jde o součet všech plateb vlastníků: fond oprav, zálohy na služby (voda) a doplatky vyúčtování, ať přišly přes SIPO nebo převodem. Průměr za měsíc stoupl z 26 900 Kč (2022) na 44 400 Kč (2025–2026). Skok v říjnu 2024 je zvýšení fondu oprav na 30 Kč/m², skok v lednu 2025 navýšení záloh o 300 Kč na byt na správu domu.</p>
+  <div class="chart">
+    <svg id="ch-contrib" role="img" aria-label="Měsíční příspěvky vlastníků"></svg>
+    <div class="tip"></div>
+  </div>
+  <div class="tbl-wrap"><table id="tbl-income"></table></div>
+</section>
+
+<section id="vydaje">
+  <div class="label">Výdaje</div>
+  <h2>Kam šly peníze</h2>
+  <p>Výdaje podle druhu za celé období. Vrácené přeplatky od dodavatelů (E.ON, voda) a vrácené chybné platby jsou odečteny od příslušné položky.</p>
+  <div class="chart">
+    <svg id="ch-cats" role="img" aria-label="Výdaje podle kategorií za celé období"></svg>
+    <div class="tip"></div>
+  </div>
+  <div class="tbl-wrap"><table id="tbl-exp"></table></div>
+
+  <h3>Co z čísel vyplývá</h3>
+  <ul class="checks">
+    <li><span><b>Regenerace domu (NZÚ) stála 1 775 522 Kč</b>, placeno v pěti splátkách od 5/2023 do 2/2025. Dotace 855 090 Kč přišla 10. 4. 2024. Čistý náklad pro SVJ byl 920 432 Kč.</span></li>
+    <li><span><b>Rok 2026 nese další velké akce:</b> ošetření krovu (199 696 Kč), projektovou dokumentaci (110 000 Kč) a předtím opravu římsy na podzim 2025 (96 526 Kč). Shromáždění v září 2026 navíc řešilo havarijní stav střechy.</span></li>
+    <li><span><b>Provoz domu stojí kolem 190 000 Kč ročně:</b> voda zhruba 80 000 Kč, správce Bytservis 38–40 000 Kč, úklid 26 000 Kč, pojištění 14 415 Kč (beze změny pět let), odměna předsedy 18 000 Kč a revize 8–13 000 Kč.</span></li>
+    <li><span><b>Elektřina společných prostor:</b> v roce 2022 se platily zálohy 8 140 Kč čtvrtletně. Po vyúčtování vrátil E.ON 28 499 Kč a zálohy se snížily, dnes stojí elektřina asi 6 000 Kč ročně.</span></li>
+    <li><span><b>Duplicitní platby:</b> v červenci 2025 odešly dvakrát kontrola plynovodu (1 997 Kč) i elektroinstalační práce (672 Kč). Eckert vrátil 672 Kč, vratku za plynovod ve výpisu nevidím.</span></li>
+  </ul>
+</section>
+
+<section id="historie">
+  <div class="label">Historie společenství</div>
+  <h2>Od městského domu k vlastní správě</h2>
+  <p>Sestaveno ze zápisů, smluv, výročních zpráv správce a nabídek v archivu na Google Disku. Zdroj je uveden u každé položky.</p>
+
+  <div>
+    <div class="era">Vznik SVJ (1997–2010)</div>
+    <ol class="trail">
+      <li class="key"><span class="when">15. 8. 1997</span><div class="what"><h3>Prohlášení vlastníka</h3><p>Město Jihlava rozdělilo budovu čp. 1948 v Mahlerově ulici na bytové jednotky podle zákona č. 72/1994 Sb. a byty začalo prodávat.</p><span class="src">Archiv / prohlášení vlastníka</span></div></li>
+      <li class="key"><span class="when">7. 12. 2001</span><div class="what"><h3>Zápis SVJ do rejstříku</h3><p>Společenství vlastníků jednotek obytného domu Mahlerova 1948/1 bylo zapsáno u Krajského soudu v Brně (oddíl S, vložka 1603).</p><span class="src">Výpis z rejstříku ve zprávě za 2016</span></div></li>
+      <li><span class="when">1. 1. 2002</span><div class="what"><h3>Správa domu u Bytservisu</h3><p>Účinnost smlouvy o zajišťování správy se společností Bytservis, spol. s r.o. Za SVJ ji podepsali předseda výboru Ing. Jan Strejček a Alena Kolmanová.</p><span class="src">Změna výboru / smlouva o zajišťování správy</span></div></li>
+      <li><span class="when">21. 10. 2010</span><div class="what"><h3>Výbor Kolmanová – Honzárek</h3><p>Předsedkyní se stala Alena Kolmanová, členem výboru Michal Honzárek.</p><span class="src">Výpis z rejstříku</span></div></li>
+    </ol>
+
+    <div class="era">Opravy rozvodů a nový výbor (2012–2017)</div>
+    <ol class="trail">
+      <li><span class="when">2012–2015</span><div class="what"><h3>První opravy</h3><p>2012 nový TV zesilovač (5 273 Kč), 2013 stoupačka kanalizace a vody (36 479 Kč), 2014 výměna stoupaček a ležatého vodovodu (236 066 Kč), 2015 oprava střechy (11 316 Kč).</p><span class="src">Výroční zprávy správce 2016 a 2017</span></div></li>
+      <li><span class="when">31. 12. 2016</span><div class="what"><h3>Stav domu podle správce</h3><p>15 bytů a 15 vlastníků, fond oprav 20 Kč/m² (18 690 Kč měsíčně), zůstatek fondu 613 985 Kč. Dům pojištěn u Allianz, účet u ČSOB. Plán na další roky: vodoměry, izolace zdiva, fasáda, vchodové dveře, sklepní okna.</p><span class="src">Zpráva za rok 2016</span></div></li>
+      <li class="key"><span class="when">24. 4. 2017</span><div class="what"><h3>Nový výbor a nové stanovy</h3><p>Shromáždění zvolilo výbor Roman Matějíček (předseda), Petr Varró (místopředseda) a Michal Honzárek a schválilo nové stanovy podle občanského zákoníku. Obojí platí od 27. 4. 2017.</p><span class="src">Archiv / podklady pro nový výbor</span></div></li>
+      <li><span class="when">2017</span><div class="what"><h3>Okapy, popelnice, vodoměry</h3><p>Protizámrzný systém dešťového svodu (20 207 Kč), oprava popelnicového stání (12 076 Kč) a nové bytové vodoměry s odečty od Techemu (11 903 Kč).</p><span class="src">Zpráva za rok 2017 · Vytápění okapů · Vodoměry</span></div></li>
+      <li><span class="when">12/2017</span><div class="what"><h3>Účet u Fio banky</h3><p>SVJ si zřídilo účet 2701336622/2010 a převedlo na něj první 100 000 Kč z ČSOB. Fond oprav ke konci roku 2017: 712 006 Kč.</p><span class="src">Fio banka / rámcová smlouva · zpráva 2017</span></div></li>
+    </ol>
+
+    <div class="era">Odvlhčení a modernizace (2018–2022)</div>
+    <ol class="trail">
+      <li class="key"><span class="when">2–3/2018</span><div class="what"><h3>Odvlhčení sklepa, I. etapa</h3><p>Schůze 22. 1. 2018 schválila zakázku Dorsym s.r.o.: oklepání omítek ve sklepě, vnitřní drenáž kolem všech zdí a nová sklepní okna. Kvůli vícepracím vyšla cena na 386 623 Kč bez DPH (444 616 Kč s DPH) plus okna. Dílo bylo převzato 28. 3. 2018 bez vad.</p><span class="src">Odvlhčení domu / smlouva, dodatek, zápis o odevzdání</span></div></li>
+      <li><span class="when">7/2018</span><div class="what"><h3>Pojišťovna DIRECT</h3><p>SVJ vypovědělo pojistku u Allianz ke 3. 7. 2018 a pojistilo dům u DIRECT pojišťovny.</p><span class="src">Pojištění domu</span></div></li>
+      <li><span class="when">2018–2019</span><div class="what"><h3>II. etapa: izolace ve dvoře</h3><p>Na izolaci obvodové zdi ve dvoře přišly nabídky od firem Ferenc (2018) a Dorsym (199 324 Kč, 2019). Na schůzi 22. 5. 2019 se předávaly nové klíče.</p><span class="src">Odvlhčení domu · Schůze 22.5.2019</span></div></li>
+      <li><span class="when">10–12/2020</span><div class="what"><h3>Zvonky, čipy a optika</h3><p>Vlastníci souhlasili s rekonstrukcí domovních telefonů a čipovým vstupem (Elektro Eckert). Výbor povolil T-Mobile zavést do domu optickou síť.</p><span class="src">Souhlas s rekonstrukcí dveří · T-Mobile</span></div></li>
+      <li><span class="when">6. 10. 2022</span><div class="what"><h3>Schůze o stavu domu</h3><p>Na programu byla volba nového výboru, kontrola střechy, okna a dveře ve společných prostorách, omítky, elektroinstalace, rozdělení půdy na kóje, úklid půdy a sklepů, stromy na dvoře a nespokojenost s Bytservisem.</p><span class="src">Archiv 2022 / schůze říjen 2022</span></div></li>
+    </ol>
+
+    <div class="era">Regenerace domu (2023–2026)</div>
+    <ol class="trail">
+      <li><span class="when">2022–2023</span><div class="what"><h3>Výběr oken a nový výbor</h3><p>Nabídky na okna a dveře přišly od Plastikov, Juropa a VEKA. Schůze 19. 1. 2023 hlasovala písemně. Novým předsedou se stal Michal Preusler, místopředsedou Petr Varró a členem Cyril Kuba (zápis do rejstříku zaplacen 9/2023).</p><span class="src">Archiv 2022 · Schůze 19.1.2023 · výpis účtu</span></div></li>
+      <li class="key"><span class="when">8/2023 – 2/2026</span><div class="what"><h3>Regenerace podle Nové zelené úsporám</h3><p>Zateplení stropu sklepa (100 mm), podlahy půdy (300 mm EPS), stěn schodiště a mezonetového bytu, výměna oken a vstupních dveří a nová fasáda ze dvora ve světle šedé barvě. Projekt i technický dozor dělal Ing. Zdeněk Musil. Celkové výdaje činily 1 775 522 Kč, dotace SFŽP 855 090 Kč (vyplacena 10. 4. 2024). Závěrečná zpráva je z 16. 2. 2026.</p><span class="src">Zateplení fasády / závěrečná zpráva TDS, doložení realizace</span></div></li>
+      <li><span class="when">1/2024</span><div class="what"><h3>Úklid externě</h3><p>Místo rozpisu služeb mezi vlastníky (2023) uklízí společné prostory externí firma za 2 130 Kč měsíčně.</p><span class="src">Smlouva úklid FLAHO · výpis účtu</span></div></li>
+      <li class="key"><span class="when">17. 6. 2024</span><div class="what"><h3>Vyšší příspěvky</h3><p>Shromáždění jednomyslně schválilo fond oprav 30 Kč/m² od 10/2024, navýšení záloh o 300 Kč na byt a měsíc na správu od 1. 1. 2025 a odměnu předsedy 1 500 Kč měsíčně od 10/2024.</p><span class="src">Schůze 17.6.2024 / zápis</span></div></li>
+      <li><span class="when">2024–2025</span><div class="what"><h3>Elektro, vodoměry, římsa</h3><p>V roce 2024 proběhla revize elektroinstalace společných prostor a montáž nových bytových vodoměrů (24 920 Kč). V lednu 2025 následovaly elektromontáže (18 250 Kč), na podzim 2025 oprava římsy (96 526 Kč).</p><span class="src">Výpis účtu</span></div></li>
+      <li><span class="when">2026</span><div class="what"><h3>Krov a projekt</h3><p>Ošetření krovu (199 696 Kč), revize hromosvodu a projektová dokumentace (110 000 Kč). Od roku 2026 SVJ podává jednotné měsíční hlášení zaměstnavatele (JMHZ) za dohodu předsedy.</p><span class="src">JMHZ · výpis účtu</span></div></li>
+      <li class="key"><span class="when">29. 9. 2026</span><div class="what"><h3>Odvolání výboru a odchod od Bytservisu</h3><p>Shromáždění (92,44 % podílů) odvolalo výbor Preusler – Varró – Kuba a zvolilo nový ve složení Roman Matějíček, Daniel Večerník a Petr Varró. Dále jednomyslně schválilo zvýšení fondu oprav o 10 Kč/m², změnu správce, rozdělení půdy na uzamykatelné kóje pro každý byt (podobně se rozdělí i sklep), úklid s kontejnerem 11. 10. a kácení stromů. Řešil se i havarijní stav střechy.</p><span class="src">Změna výboru / zápis ze schůze</span></div></li>
+      <li><span class="when">1. 10. 2026</span><div class="what"><h3>Petr Varró předsedou</h3><p>Na prvním jednání výboru byl předsedou zvolen Petr Varró, místopředsedou Roman Matějíček.</p><span class="src">Změna výboru / zápis z prvního jednání</span></div></li>
+      <li class="key"><span class="when">15. 10. 2026</span><div class="what"><h3>Výpověď správci</h3><p>SVJ vypovědělo po téměř 25 letech smlouvu s Bytservisem. Výpovědní lhůta je šest měsíců, smlouva skončí 30. 4. 2027.</p><span class="src">Změna výboru / výpověď smlouvy o správě</span></div></li>
+    </ol>
+  </div>
+</section>
+
+<footer>
+  <p>Zdroje: výpisy Fio 2701336622 (967 pohybů, 1. 2. 2022 – 22. 10. 2026), archiv dokumentů SVJ na Google Disku. Příjmy jsou záměrně souhrnné, bez rozpadu na jednotlivé vlastníky.</p>
+  <p>Data přepočítá skript <span class="mono">analyza.py</span>, výstup ukládá do <span class="mono">data.json</span> a do této stránky.</p>
+</footer>
+</main>
+
+<script id="data" type="application/json">
+{"period": ["2022-02-03", "2026-10-20"], "count": 967, "years": [2022, 2023, 2024, 2025, 2026], "income_cats": ["Příspěvky vlastníků", "Dotace NZÚ", "Ostatní příjmy"], "expense_cats": ["Regenerace domu (NZÚ)", "Voda", "Ošetření krovu", "Správce (Bytservis)", "Projektová dokumentace", "Vratky přeplatků vlastníkům", "Oprava římsy", "Pojištění", "Úklid", "Opravy a údržba", "Revize a kontroly", "Odměna předsedy", "Elektřina", "Pokladna a drobné nákupy"], "by_year": {"2022": {"Příspěvky vlastníků": 296182, "Voda": -75601, "Správce (Bytservis)": -32190, "Elektřina": 2939, "Revize a kontroly": -7672, "Vratky přeplatků vlastníkům": -21687, "Ostatní příjmy": 1335, "Opravy a údržba": -5993, "Pojištění": -14415, "Projektová dokumentace": 0, "Ošetření krovu": 0, "Pokladna a drobné nákupy": 0, "Regenerace domu (NZÚ)": 0, "Úklid": 0, "Odměna předsedy": 0, "Oprava římsy": 0}, "2023": {"Příspěvky vlastníků": 335110, "Voda": -81150, "Revize a kontroly": -8439, "Správce (Bytservis)": -38077, "Elektřina": -5300, "Regenerace domu (NZÚ)": -675692, "Vratky přeplatků vlastníkům": -23186, "Pojištění": -14415, "Pokladna a drobné nákupy": -2120, "Projektová dokumentace": 0, "Ošetření krovu": 0, "Opravy a údržba": 0, "Úklid": 0, "Odměna předsedy": 0, "Oprava římsy": 0}, "2024": {"Příspěvky vlastníků": 390568, "Voda": -83297, "Správce (Bytservis)": -39171, "Úklid": -23430, "Revize a kontroly": -13464, "Elektřina": -5877, "Dotace NZÚ": 855090, "Opravy a údržba": -26709, "Vratky přeplatků vlastníkům": -22584, "Regenerace domu (NZÚ)": -738454, "Pojištění": -14415, "Pokladna a drobné nákupy": -747, "Odměna předsedy": -6999, "Projektová dokumentace": 0, "Ošetření krovu": 0, "Oprava římsy": 0}, "2025": {"Příspěvky vlastníků": 532920, "Odměna předsedy": -18000, "Voda": -80071, "Úklid": -27000, "Správce (Bytservis)": -40005, "Opravy a údržba": -18922, "Revize a kontroly": -7783, "Regenerace domu (NZÚ)": -361376, "Elektřina": -6600, "Vratky přeplatků vlastníkům": -21537, "Pojištění": -14415, "Oprava římsy": -96526, "Projektová dokumentace": 0, "Ošetření krovu": 0, "Pokladna a drobné nákupy": 0}, "2026": {"Příspěvky vlastníků": 443973, "Voda": -78416, "Odměna předsedy": -13500, "Úklid": -21518, "Správce (Bytservis)": -37737, "Revize a kontroly": -8087, "Elektřina": -4380, "Vratky přeplatků vlastníkům": -15562, "Pokladna a drobné nákupy": -9804, "Ošetření krovu": -199696, "Pojištění": -14415, "Projektová dokumentace": -110000, "Opravy a údržba": 0, "Regenerace domu (NZÚ)": 0, "Oprava římsy": 0}}, "months": ["2022-02", "2022-03", "2022-04", "2022-05", "2022-06", "2022-07", "2022-08", "2022-09", "2022-10", "2022-11", "2022-12", "2023-01", "2023-02", "2023-03", "2023-04", "2023-05", "2023-06", "2023-07", "2023-08", "2023-09", "2023-10", "2023-11", "2023-12", "2024-01", "2024-02", "2024-03", "2024-04", "2024-05", "2024-06", "2024-07", "2024-08", "2024-09", "2024-10", "2024-11", "2024-12", "2025-01", "2025-02", "2025-03", "2025-04", "2025-05", "2025-06", "2025-07", "2025-08", "2025-09", "2025-10", "2025-11", "2025-12", "2026-01", "2026-02", "2026-03", "2026-04", "2026-05", "2026-06", "2026-07", "2026-08", "2026-09", "2026-10"], "monthly_contrib": [24667, 23765, 35455, 31059, 23967, 26994, 31741, 23853, 24228, 25228, 25228, 25228, 25228, 24228, 24367, 43145, 28183, 27648, 32181, 26779, 26375, 26375, 25375, 26085, 26427, 26585, 42486, 28100, 40808, 26958, 35095, 28349, 34272, 38496, 36902, 38102, 41080, 54608, 44163, 47585, 49760, 48913, 41558, 41258, 39460, 42970, 43461, 41761, 41707, 54750, 43855, 43942, 49012, 41707, 41707, 45862, 39668], "cumulative": [14940, 28979, 46439, 47166, 61406, 66556, 87838, 101964, 92705, 132651, 142898, 165333, 180584, 193577, 199015, 92428, 95329, 111238, 134248, -412600, -395951, -379722, -370371, -353930, -340131, -328841, 554389, 546246, 420244, 432275, 455221, 468691, -118105, -93258, -99860, -96812, -432384, -392885, -362851, -351980, -328490, -296375, -268465, -247890, -222079, -287583, -259175, -231231, -208570, -170911, -141791, -132204, -306143, -405329, -374561, -352975, -328318], "big": [{"date": "2023-05-04", "amount": -121874, "cat": "Regenerace domu (NZÚ)", "text": "stavební práce"}, {"date": "2023-09-12", "amount": -553818, "cat": "Regenerace domu (NZÚ)", "text": "Stavební práce - zálohová faktur Stavební práce - zálohová faktur"}, {"date": "2024-04-10", "amount": 855090, "cat": "Dotace NZÚ", "text": "Regenerace bytového domu Mahlerova1948/1, Jihlava SFŽP ČR"}, {"date": "2024-06-17", "amount": -138454, "cat": "Regenerace domu (NZÚ)", "text": "stavební práce +materiál"}, {"date": "2024-10-07", "amount": -600000, "cat": "Regenerace domu (NZÚ)", "text": "Stavebni prace a material z dota Stavebni prace a material z dota"}, {"date": "2025-02-12", "amount": -361376, "cat": "Regenerace domu (NZÚ)", "text": "Stavebni prace a material z dota Stavebni prace a material z dota"}, {"date": "2025-11-13", "amount": -90225, "cat": "Oprava římsy", "text": "Oprava rimsy Oprava rimsy"}, {"date": "2026-06-30", "amount": -199696, "cat": "Ošetření krovu", "text": "Osetreni krovu objektu Osetreni krovu objektu"}, {"date": "2026-07-08", "amount": -110000, "cat": "Projektová dokumentace", "text": "Projektova dokumentace Projektova dokumentace"}]}
+</script>
+<script>
+const D = JSON.parse(document.getElementById('data').textContent);
+const NS = 'http://www.w3.org/2000/svg';
+const fmt = v => Math.round(v).toLocaleString('cs-CZ').replace(/ /g, ' ');
+const kc = v => fmt(v) + ' Kč';
+const short = v => Math.abs(v) >= 1e6 ? (v / 1e6).toLocaleString('cs-CZ', {maximumFractionDigits: 2}) + ' mil.' : Math.abs(v) >= 1e3 ? Math.round(v / 1e3) + ' tis.' : String(Math.round(v));
+const MONTHS = ['led','úno','bře','dub','kvě','čvn','čvc','srp','zář','říj','lis','pro'];
+const sum = a => a.reduce((s, x) => s + x, 0);
+
+function el(tag, attrs, parent) {
+  const n = document.createElementNS(NS, tag);
+  for (const k in attrs) n.setAttribute(k, attrs[k]);
+  if (parent) parent.appendChild(n);
+  return n;
+}
+function niceMax(v) { const p = Math.pow(10, Math.floor(Math.log10(v))); return Math.ceil(v / p * 2) / 2 * p; }
+// rounded-top bar anchored to the baseline
+function barPath(x, y, w, h, r) {
+  r = Math.min(r, w / 2, h);
+  return `M${x},${y + h}V${y + r}Q${x},${y} ${x + r},${y}H${x + w - r}Q${x + w},${y} ${x + w},${y + r}V${y + h}Z`;
+}
+function tooltip(svg) {
+  const tip = svg.parentElement.querySelector('.tip');
+  return {
+    show(html, evt) {
+      tip.innerHTML = html; tip.style.opacity = 1;
+      const box = svg.parentElement.getBoundingClientRect();
+      let x = evt.clientX - box.left + 14, y = evt.clientY - box.top + 14;
+      if (x + tip.offsetWidth > box.width) x = evt.clientX - box.left - tip.offsetWidth - 14;
+      tip.style.left = Math.max(0, x) + 'px'; tip.style.top = y + 'px';
+    },
+    hide() { tip.style.opacity = 0; }
+  };
+}
+function yAxis(svg, W, P, H, max, ticks, fmtTick, min = 0) {
+  for (let i = 0; i <= ticks; i++) {
+    const v = min + (max - min) * i / ticks, y = P.t + H - (v - min) / (max - min) * H;
+    el('line', {x1: P.l, x2: W - P.r, y1: y, y2: y, stroke: v === 0 ? 'var(--muted)' : 'var(--grid)', 'stroke-width': 1}, svg);
+    el('text', {x: P.l - 6, y: y + 4, 'text-anchor': 'end'}, svg).textContent = fmtTick(v);
+  }
+}
+
+const Y = D.years, inc = D.income_cats, exp = D.expense_cats;
+const incY = Y.map(y => sum(inc.map(c => D.by_year[y][c] || 0)));
+const expY = Y.map(y => -sum(exp.map(c => D.by_year[y][c] || 0)));
+const label = y => y === 2022 ? '2022 (2–12)' : y === 2026 ? '2026 (1–10)' : String(y);
+
+// tiles
+const totInc = sum(incY), totExp = sum(expY), dot = D.by_year[2024]['Dotace NZÚ'];
+document.getElementById('tiles').innerHTML = [
+  [kc(totInc), 'příjmy celkem'],
+  [kc(totInc - dot), 'z toho od vlastníků a ostatní'],
+  [kc(totExp), 'výdaje celkem'],
+  [kc(totInc - totExp), 'změna zůstatku'],
+].map(([v, k]) => `<div class="tile"><span class="v">${v}</span><span class="k">${k}</span></div>`).join('');
+
+// 1) yearly grouped bars
+(function () {
+  const svg = document.getElementById('ch-years'), W = 720, Hh = 280, P = {t: 18, r: 8, b: 30, l: 62}, H = Hh - P.t - P.b;
+  svg.setAttribute('viewBox', `0 0 ${W} ${Hh}`);
+  const max = niceMax(Math.max(...incY, ...expY));
+  yAxis(svg, W, P, H, max, 4, short);
+  const gw = (W - P.l - P.r) / Y.length, bw = Math.min(46, gw * 0.3), tt = tooltip(svg);
+  Y.forEach((y, i) => {
+    const cx = P.l + gw * i + gw / 2;
+    [[incY[i], 'var(--income)', -1], [expY[i], 'var(--expense)', 1]].forEach(([v, col, side]) => {
+      const h = v / max * H, x = cx + (side < 0 ? -bw - 1 : 1);
+      el('path', {d: barPath(x, P.t + H - h, bw, h, 4), fill: col}, svg);
+      el('text', {x: x + bw / 2, y: P.t + H - h - 5, 'text-anchor': 'middle', class: 'val'}, svg).textContent = short(v);
+    });
+    el('text', {x: cx, y: Hh - 10, 'text-anchor': 'middle'}, svg).textContent = label(y);
+    const hit = el('rect', {x: cx - gw / 2, y: P.t, width: gw, height: H, class: 'hit'}, svg);
+    const rows = c => `${c}: <b>${kc(Math.abs(D.by_year[y][c] || 0))}</b>`;
+    hit.addEventListener('mousemove', e => tt.show(`<strong>${label(y)}</strong><br>Příjmy <b>${kc(incY[i])}</b><br>Výdaje <b>${kc(expY[i])}</b><br>Saldo <b>${kc(incY[i] - expY[i])}</b>` +
+      (D.by_year[y]['Dotace NZÚ'] ? '<br>' + rows('Dotace NZÚ') : '') + (D.by_year[y]['Regenerace domu (NZÚ)'] ? '<br>' + rows('Regenerace domu (NZÚ)') : ''), e));
+    hit.addEventListener('mouseleave', tt.hide);
+  });
+})();
+
+// 2) cumulative balance change (line)
+(function () {
+  const svg = document.getElementById('ch-cum'), W = 720, Hh = 240, P = {t: 16, r: 10, b: 28, l: 62}, H = Hh - P.t - P.b;
+  svg.setAttribute('viewBox', `0 0 ${W} ${Hh}`);
+  const v = D.cumulative, lo = Math.min(0, ...v), hi = Math.max(0, ...v);
+  const step = 200000, min = Math.floor(lo / step) * step, max = Math.ceil(hi / step) * step;
+  yAxis(svg, W, P, H, max, (max - min) / step, short, min);
+  const n = v.length, x = i => P.l + (W - P.l - P.r) * i / (n - 1), y = val => P.t + H - (val - min) / (max - min) * H;
+  D.months.forEach((m, i) => { if (m.endsWith('-01')) el('text', {x: x(i), y: Hh - 8, 'text-anchor': 'middle'}, svg).textContent = m.slice(0, 4); });
+  el('path', {d: v.map((val, i) => (i ? 'L' : 'M') + x(i) + ',' + y(val)).join(''), fill: 'none', stroke: 'var(--income)', 'stroke-width': 2, 'stroke-linejoin': 'round'}, svg);
+  const dot = el('circle', {r: 4.5, fill: 'var(--income)', stroke: 'var(--surface)', 'stroke-width': 2, opacity: 0}, svg);
+  const cross = el('line', {y1: P.t, y2: P.t + H, stroke: 'var(--muted)', 'stroke-dasharray': '3 3', opacity: 0}, svg);
+  const tt = tooltip(svg);
+  const hit = el('rect', {x: P.l, y: P.t, width: W - P.l - P.r, height: H, class: 'hit'}, svg);
+  hit.addEventListener('mousemove', e => {
+    const r = svg.getBoundingClientRect(), px = (e.clientX - r.left) / r.width * W;
+    const i = Math.max(0, Math.min(n - 1, Math.round((px - P.l) / (W - P.l - P.r) * (n - 1))));
+    dot.setAttribute('cx', x(i)); dot.setAttribute('cy', y(v[i])); dot.setAttribute('opacity', 1);
+    cross.setAttribute('x1', x(i)); cross.setAttribute('x2', x(i)); cross.setAttribute('opacity', 1);
+    const [yy, mm] = D.months[i].split('-');
+    tt.show(`<strong>${MONTHS[+mm - 1]} ${yy}</strong><br>Změna od 2/2022 <b>${kc(v[i])}</b>`, e);
+  });
+  hit.addEventListener('mouseleave', () => { tt.hide(); dot.setAttribute('opacity', 0); cross.setAttribute('opacity', 0); });
+})();
+
+// 3) monthly owner contributions
+(function () {
+  const svg = document.getElementById('ch-contrib'), W = 720, Hh = 240, P = {t: 16, r: 8, b: 28, l: 62}, H = Hh - P.t - P.b;
+  svg.setAttribute('viewBox', `0 0 ${W} ${Hh}`);
+  const v = D.monthly_contrib, n = v.length, max = niceMax(Math.max(...v));
+  yAxis(svg, W, P, H, max, 4, short);
+  const gw = (W - P.l - P.r) / n, bw = Math.max(2, gw - 2), tt = tooltip(svg);
+  D.months.forEach((m, i) => {
+    const h = v[i] / max * H, x = P.l + gw * i + (gw - bw) / 2;
+    const b = el('path', {d: barPath(x, P.t + H - h, bw, h, Math.min(3, bw / 2)), fill: 'var(--income)', class: 'bar'}, svg);
+    if (m.endsWith('-01')) el('text', {x: x, y: Hh - 8, 'text-anchor': 'start'}, svg).textContent = m.slice(0, 4);
+    const hit = el('rect', {x: P.l + gw * i, y: P.t, width: gw, height: H, class: 'hit'}, svg);
+    const [yy, mm] = m.split('-');
+    hit.addEventListener('mousemove', e => { b.classList.add('on'); tt.show(`<strong>${MONTHS[+mm - 1]} ${yy}</strong><br>Příspěvky vlastníků <b>${kc(v[i])}</b>`, e); });
+    hit.addEventListener('mouseleave', () => { b.classList.remove('on'); tt.hide(); });
+  });
+  // annotate increases
+  [['2024-10', 'FO 30 Kč/m²'], ['2025-01', '+300 Kč/byt']].forEach(([m, t], k) => {
+    const i = D.months.indexOf(m); if (i < 0) return;
+    const x = P.l + gw * i + gw / 2;
+    el('line', {x1: x, x2: x, y1: P.t + 8 + k * 16, y2: P.t + H, stroke: 'var(--ink)', 'stroke-dasharray': '2 3', opacity: .5}, svg);
+    el('text', {x: x - 4, y: P.t + 6 + k * 16, 'text-anchor': 'end', class: 'val'}, svg).textContent = t;
+  });
+})();
+
+// 4) expense categories (horizontal bars, whole period)
+(function () {
+  const svg = document.getElementById('ch-cats');
+  const cats = exp.map(c => [c, -sum(Y.map(y => D.by_year[y][c] || 0))]).sort((a, b) => b[1] - a[1]);
+  const W = 720, row = 26, P = {t: 4, r: 90, b: 4, l: 210}, Hh = P.t + P.b + row * cats.length;
+  svg.setAttribute('viewBox', `0 0 ${W} ${Hh}`);
+  const max = cats[0][1], tt = tooltip(svg);
+  cats.forEach(([c, v], i) => {
+    const y = P.t + row * i, w = Math.max(2, Math.max(0, v) / max * (W - P.l - P.r));
+    el('text', {x: P.l - 8, y: y + row / 2 + 4, 'text-anchor': 'end', style: 'font-family:var(--body);font-size:13px;fill:var(--ink)'}, svg).textContent = c;
+    el('path', {d: `M${P.l},${y + 4}H${P.l + w - 4}Q${P.l + w},${y + 4} ${P.l + w},${y + 8}V${y + row - 8}Q${P.l + w},${y + row - 4} ${P.l + w - 4},${y + row - 4}H${P.l}Z`, fill: 'var(--expense)'}, svg);
+    el('text', {x: P.l + w + 6, y: y + row / 2 + 4, class: 'val'}, svg).textContent = short(v);
+    const hit = el('rect', {x: 0, y: y, width: W, height: row, class: 'hit'}, svg);
+    hit.addEventListener('mousemove', e => tt.show(`<strong>${c}</strong><br>Celkem <b>${kc(v)}</b><br>${(v / totExp * 100).toLocaleString('cs-CZ', {maximumFractionDigits: 1})} % výdajů`, e));
+    hit.addEventListener('mouseleave', tt.hide);
+  });
+})();
+
+// tables
+function table(id, cats, sign, title) {
+  const head = `<thead><tr><th>${title}</th>${Y.map(y => `<th>${label(y)}</th>`).join('')}<th>Celkem</th></tr></thead>`;
+  const body = cats.map(c => {
+    const vals = Y.map(y => sign * (D.by_year[y][c] || 0));
+    return `<tr><td>${c}</td>${vals.map(v => `<td>${v ? fmt(v) : '–'}</td>`).join('')}<td>${fmt(sum(vals))}</td></tr>`;
+  }).join('');
+  const tot = Y.map(y => sign * sum(cats.map(c => D.by_year[y][c] || 0)));
+  return head + `<tbody>${body}<tr class="sum"><td>Celkem</td>${tot.map(v => `<td>${fmt(v)}</td>`).join('')}<td>${fmt(sum(tot))}</td></tr></tbody>`;
+}
+document.getElementById('tbl-income').innerHTML = table('tbl-income', inc, 1, 'Příjmy (Kč)');
+const expSorted = exp.slice().sort((a, b) => sum(Y.map(y => D.by_year[y][a] || 0)) - sum(Y.map(y => D.by_year[y][b] || 0)));
+document.getElementById('tbl-exp').innerHTML = table('tbl-exp', expSorted, -1, 'Výdaje (Kč)');
+</script>
+</body>
+</html>
