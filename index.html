@@ -96,10 +96,13 @@ tr.sum td { font-weight: 600; border-top: 2px solid var(--line); }
 tr.grp td { background: var(--surface); font-family: var(--mono); font-size: 0.75rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--accent); }
 tbody tr:last-child td { border-bottom: 0; }
 
-.owners td { font-family: var(--body); font-size: 0.92rem; text-align: left; white-space: normal; }
-.owners td:first-child { font-family: var(--mono); font-size: 0.85rem; white-space: nowrap; }
+.owners td { font-family: var(--body); font-size: 0.95rem; text-align: left; white-space: normal; vertical-align: top; }
+.owners td:first-child { font-family: var(--mono); font-size: 0.85rem; white-space: nowrap; padding-top: 0.6rem; }
 .owners th { text-align: left; }
-.owners tr.same td { background: var(--accent-soft); }
+.chain { list-style: none; margin: 0; padding: 0; display: grid; gap: 0.15rem; }
+.chain li { display: grid; grid-template-columns: 6.4rem minmax(0, 1fr); gap: 0.6rem; color: var(--muted); }
+.chain li.now { color: var(--ink); font-weight: 600; }
+.chain .yrs { font-family: var(--mono); font-size: 0.8rem; font-weight: 400; color: var(--accent-deep); padding-top: 0.1rem; }
 /* findings */
 .checks { margin: 0; padding: 0; list-style: none; display: grid; gap: 0.9rem; }
 .checks li { display: grid; grid-template-columns: 1.4rem minmax(0, 1fr); gap: 0.6rem; }
@@ -199,7 +202,6 @@ footer { font-size: 0.9rem; color: var(--muted); display: grid; gap: 0.4rem; }
     <li><span><b>Provoz domu stojí kolem 190 000 Kč ročně:</b> voda zhruba 80 000 Kč, správce Bytservis 38–40 000 Kč, úklid 26 000 Kč, pojištění 14 415 Kč (od roku 2018 beze změny), odměna předsedy 18 000 Kč a revize 8–13 000 Kč.</span></li>
     <li><span><b>Elektřina společných prostor:</b> v prosinci 2021 se doplácelo 25 120 Kč a v roce 2022 se platily zálohy 8 140 Kč čtvrtletně. Po vyúčtování vrátil E.ON 28 499 Kč a zálohy se snížily. Dnes stojí elektřina asi 6 000 Kč ročně.</span></li>
     <li><span><b>Voda je největší provozní položka:</b> přes SVJ se platí za celý dům a vlastníci ji hradí v zálohách. Roční náklad vzrostl z 69 500 Kč (2019) na zhruba 80 000 Kč. Do roku 2021 se platilo Vodárenské akciové společnosti, od té doby Službám města Jihlavy.</span></li>
-    <li><span><b>Duplicitní platby:</b> v červenci 2025 odešly dvakrát kontrola plynovodu (1 997 Kč) i elektroinstalační práce (672 Kč). Eckert vrátil 672 Kč, vratku za plynovod ve výpisu nevidím.</span></li>
   </ul>
 </section>
 
@@ -257,29 +259,29 @@ footer { font-size: 0.9rem; color: var(--muted); display: grid; gap: 0.4rem; }
     </ol>
   </div>
 
-  <h3>Vlastníci bytů podle veřejných listin</h3>
-  <p>Seznamy vlastníků jsou přílohou notářských zápisů ve sbírce listin obchodního rejstříku. Jména jsou opsaná přesně podle listin. Zvýrazněné byty měly v roce 2010 stejného vlastníka jako v roce 2001.</p>
+  <h3>Vlastníci bytů v průběhu let</h3>
+  <p>U každého bytu jsou všichni vlastníci, které dokumenty zachycují. U jména je rozsah let, kdy je vlastník doložen. Skutečný převod mohl proběhnout kdykoli mezi dvěma seznamy. Z let 2002–2009, 2011–2015 a 2020–2023 seznam po bytech není. Tučně jsou vlastníci podle posledního seznamu ze září 2026.</p>
   <div class="tbl-wrap owners"><table>
-    <thead><tr><th>Byt</th><th>3. 10. 2001</th><th>21. 10. 2010</th></tr></thead>
+    <thead><tr><th>Byt</th><th>Vlastníci (roky, kdy jsou doloženi)</th></tr></thead>
     <tbody>
-      <tr><td>001</td><td>Salátová Danuše</td><td>Čajko Oleg Ing.</td></tr>
-      <tr><td>002</td><td>Jirků Alena a Milan</td><td>Voborník Petr</td></tr>
-      <tr class="same"><td>003</td><td>Kučerová Hana (připsáno: Wohlhöfnerová Kučerová)</td><td>Wohlhöfnerová Kučerová Hana</td></tr>
-      <tr class="same"><td>004</td><td>Wejwoda Petr</td><td>Wejwoda Petr</td></tr>
-      <tr><td>005</td><td>Šebesta Jiří a Marie</td><td>Honzárek Michal a Mikletičová Lenka</td></tr>
-      <tr><td>006</td><td>Zourek Jiří</td><td>Malínek Jiří Ing.</td></tr>
-      <tr><td>007</td><td>Vejvodová Marcela</td><td>Varro Petr, Neubauerová Eva</td></tr>
-      <tr class="same"><td>008</td><td>Tesař Alois</td><td>Tesař Alois</td></tr>
-      <tr class="same"><td>009</td><td>Kolmanová Zdenka</td><td>Kolmanová Zdenka</td></tr>
-      <tr class="same"><td>010</td><td>Kolman Miloš a Alena</td><td>Kolman Miloš a Alena</td></tr>
-      <tr><td>011</td><td>Volklová Radka a Libor</td><td>Kovář Ivo Ing., CSc. a Marcela</td></tr>
-      <tr><td>012</td><td>Rožek Pavel a Hana</td><td>Matějíček Roman Mgr. a Radka Bc. MgA</td></tr>
-      <tr class="same"><td>013</td><td>ing. Strejček Jan a Jarmila</td><td>Ing.arch. Strejček Jan a Jarmila MUDr.</td></tr>
-      <tr><td>014</td><td>Grunt Pavel</td><td>Erol Andrea</td></tr>
-      <tr><td>015</td><td>Pejcalová Simona a Jaroslav</td><td>Lnéníčková Alena</td></tr>
+      <tr><td>001</td><td><ol class="chain"><li><span class="yrs">2001</span> Danuše Salátová</li><li><span class="yrs">2010</span> Ing. Oleg Čajko</li><li><span class="yrs">2016–2025</span> Helena Klímová</li><li class="now"><span class="yrs">2026</span> Otília Otavková</li></ol></td></tr>
+      <tr><td>002</td><td><ol class="chain"><li><span class="yrs">2001</span> Alena a Milan Jirků</li><li><span class="yrs">2010–2018</span> Petr Voborník</li><li class="now"><span class="yrs">2019–2026</span> Bc. Cyril Kuba</li></ol></td></tr>
+      <tr><td>003</td><td><ol class="chain"><li class="now"><span class="yrs">2001–2026</span> Hana Wohlhöfnerová Kučerová</li></ol></td></tr>
+      <tr><td>004</td><td><ol class="chain"><li class="now"><span class="yrs">2001–2026</span> Petr Wejwoda</li></ol></td></tr>
+      <tr><td>005</td><td><ol class="chain"><li><span class="yrs">2001</span> Jiří a Marie Šebestovi</li><li><span class="yrs">2010–2019</span> Michal Honzárek a Lenka Mikletičová</li><li><span class="yrs">2024–2025</span> Jiří a Hana Růžičkovi</li><li class="now"><span class="yrs">2026</span> Hana Růžičková</li></ol></td></tr>
+      <tr><td>006</td><td><ol class="chain"><li><span class="yrs">2001</span> Jiří Zourek</li><li><span class="yrs">2010–2024</span> Ing. Jiří Malínek</li><li class="now"><span class="yrs">2025–2026</span> Petr Varró a Eva Neubauerová</li></ol></td></tr>
+      <tr><td>007</td><td><ol class="chain"><li><span class="yrs">2001</span> Marcela Vejvodová</li><li class="now"><span class="yrs">2010–2026</span> Petr Varró a Eva Neubauerová</li></ol></td></tr>
+      <tr><td>008</td><td><ol class="chain"><li><span class="yrs">2001–2019</span> Alois Tesař</li><li class="now"><span class="yrs">2024–2026</span> Martina Munduchová</li></ol></td></tr>
+      <tr><td>009</td><td><ol class="chain"><li><span class="yrs">2001–2010</span> Zdenka Kolmanová</li><li><span class="yrs">2016–2019</span> Miloš Kolman</li><li class="now"><span class="yrs">2024–2026</span> Michal Preusler</li></ol></td></tr>
+      <tr><td>010</td><td><ol class="chain"><li><span class="yrs">2001–2019</span> Miloš a Alena Kolmanovi</li><li class="now"><span class="yrs">2024–2026</span> Klarissa Shanel Preusler</li></ol></td></tr>
+      <tr><td>011</td><td><ol class="chain"><li><span class="yrs">2001</span> Radka a Libor Volklovi</li><li class="now"><span class="yrs">2010–2026</span> Ing. Ota Kovář, CSc. a Marcela Kovářová</li></ol></td></tr>
+      <tr><td>012</td><td><ol class="chain"><li><span class="yrs">2001</span> Pavel a Hana Rožkovi</li><li class="now"><span class="yrs">2010–2026</span> Mgr. Roman Matějíček a MgA. Bc. Radka Matějíčková</li></ol></td></tr>
+      <tr><td>013</td><td><ol class="chain"><li><span class="yrs">2001–2016</span> Ing. arch. Jan Strejček a MUDr. Jarmila Strejčková</li><li class="now"><span class="yrs">2017–2026</span> MUDr. Jarmila Strejčková</li></ol></td></tr>
+      <tr><td>014</td><td><ol class="chain"><li><span class="yrs">2001</span> Pavel Grunt</li><li><span class="yrs">2010–2019</span> Andrea Erol</li><li class="now"><span class="yrs">2024–2026</span> Dalibor a Jana Medvíkovi</li></ol></td></tr>
+      <tr><td>015</td><td><ol class="chain"><li><span class="yrs">2001</span> Simona a Jaroslav Pejcalovi</li><li><span class="yrs">2010</span> Alena Lnéníčková</li><li><span class="yrs">2016–2019</span> Rudolf a Mirka Veverkovi</li><li class="now"><span class="yrs">2024–2026</span> MUDr. Daniel Večerník</li></ol></td></tr>
     </tbody>
   </table></div>
-  <p class="note">Zdroj: sbírka listin SVJ, notářské zápisy NZ 356/2001 (příloha č. 1) a NZ 143/2010 (příloha č. 1), or.justice.cz. Novější seznamy veřejně nevyšly. Aktuální vlastníky jednotek ukazuje <a href="https://nahlizenidokn.cuzk.gov.cz/">Nahlížení do katastru nemovitostí</a> (budova čp. 1948, k. ú. Jihlava).</p>
+  <p class="note">Seznamy po bytech: 2001 a 2010 podle notářských zápisů NZ 356/2001 a NZ 143/2010 (sbírka listin, or.justice.cz); 2016 a 2017 podle knihy vlastníků ve výročních zprávách správce; 2017, 2018, 2019, 2024, 2025 a 2026 podle prezenčních listin ze schůzí. U bytu 011 uvádí listina z roku 2010 jméno „Ivo“, pozdější seznamy „Ota“. Byty 009 a 010 vedly prezenční listiny 2017–2019 společně pod manžely Kolmanovými. Aktuální stav ověří <a href="https://nahlizenidokn.cuzk.gov.cz/">Nahlížení do katastru nemovitostí</a> (budova čp. 1948, k. ú. Jihlava).</p>
 </section>
 
 <footer>
