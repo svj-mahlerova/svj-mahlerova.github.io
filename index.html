@@ -131,8 +131,8 @@ footer { font-size: 0.9rem; color: var(--muted); display: grid; gap: 0.4rem; }
         <h1>SVJ Mahlerova 1</h1>
       </div>
     </div>
-    <p class="lede">Bytový dům Mahlerova 1948/1 v Jihlavě: 15 bytů, přibližně 935 m² podlahové plochy.</p>
-    <p class="lede-sub">Hospodaření z výpisu účtu Fio 2701336622 (únor 2022 – říjen 2026) a historie společenství sestavená z archivu dokumentů.</p>
+    <p class="lede">Bytový dům Mahlerova 1948/1 v Jihlavě: 15 bytů, 4 podlaží, zastavěná plocha 423 m² na stavební parcele 4088, zhruba 935 m² bytové plochy.</p>
+    <p class="lede-sub">Hospodaření z výpisů účtu Fio 2701336622 (od jeho založení v prosinci 2017 do října 2026) a historie společenství sestavená z archivu dokumentů.</p>
     <nav><a href="#hospodareni">Hospodaření</a><a href="#prijmy">Příjmy</a><a href="#vydaje">Výdaje</a><a href="#historie">Historie</a></nav>
   </div>
 </header>
@@ -140,29 +140,37 @@ footer { font-size: 0.9rem; color: var(--muted); display: grid; gap: 0.4rem; }
 <main class="wrap gutter">
 
 <section id="hospodareni">
-  <div class="label">Hospodaření 2/2022 – 10/2026</div>
-  <h2>Za čtyři a půl roku prošlo účtem 2,86 mil. Kč příjmů</h2>
-  <p>Víc než polovinu všech výdajů (56 %) spolkla regenerace domu z programu Nová zelená úsporám. Dotace pokryla 48 % její ceny, zbytek se zaplatil z fondu oprav, a proto zůstatek účtu od roku 2023 klesá.</p>
+  <div class="label">Hospodaření 2018 – 10/2026</div>
+  <h2>Za devět let prošlo účtem 4,07 mil. Kč příjmů</h2>
+  <p>Do konce roku 2022 zůstatek rostl až na 618 tis. Kč. Pak přišla regenerace domu z programu Nová zelená úsporám, která spotřebovala 43 % všech výdajů. Dotace pokryla 48 % její ceny, zbytek se zaplatil z našetřených peněz. Na podzim 2025 a v roce 2026 následovaly oprava římsy, ošetření krovu a projekt. Zůstatek tak klesl na 147 tis. Kč.</p>
   <div class="tiles" id="tiles"></div>
   <div class="chart">
-    <div class="legend"><span><i style="background:var(--income)"></i>Příjmy</span><span><i style="background:var(--expense)"></i>Výdaje</span></div>
+    <div class="legend"><span><i style="background:var(--income)"></i>Příjmy</span><span><i style="background:var(--expense)"></i>Výdaje</span><span>v tis. Kč</span></div>
     <svg id="ch-years" role="img" aria-label="Roční příjmy a výdaje 2022–2026"></svg>
     <div class="tip"></div>
   </div>
-  <p class="note">Rok 2022 začíná až 1. 2. 2022, rok 2026 končí 22. 10. 2026. Příjmy roku 2024 obsahují dotaci SFŽP 855 090 Kč.</p>
+  <p class="note">Účet u Fio vznikl 19. 12. 2017. Do dubna 2018 chodily platby přes SIPO ještě na starý účet u ČSOB, rok 2018 je proto na straně příjmů neúplný. Dva převody z ČSOB (12/2017 a 10/2018, celkem 200 462 Kč) nejsou počítány jako příjem. Rok 2026 končí 20. 10. Příjmy roku 2024 obsahují dotaci SFŽP 855 090 Kč.</p>
 
-  <h3>Změna zůstatku účtu od 1. 2. 2022</h3>
+  <h3>Zůstatek účtu Fio</h3>
   <div class="chart">
     <svg id="ch-cum" role="img" aria-label="Kumulativní změna zůstatku účtu"></svg>
     <div class="tip"></div>
   </div>
-  <p class="note">Počáteční zůstatek ve výpisu není, graf proto ukazuje jen součet pohybů. Stojí za to doplnit zůstatek k 1. 2. 2022 z výpisu Fio.</p>
+  <p class="note">Účet začínal 19. 12. 2017 s nulou, graf proto ukazuje skutečný zůstatek ke konci každého měsíce. Nejvýš byl v dubnu 2024 (1,03 mil. Kč), kdy přišla dotace a ještě nebyly zaplacené poslední faktury za regeneraci. Rezerva na ošetření krovu a střechu je dnes malá.</p>
+
+  <h3>Peníze SVJ na konci roku, 2003–2025</h3>
+  <div class="chart">
+    <div class="legend"><span><i style="background:var(--income)"></i>Peníze na účtech k 31. 12.</span><span><i style="background:var(--expense)"></i>Opravy v daném roce</span></div>
+    <svg id="ch-long" role="img" aria-label="Zůstatek na účtech a náklady na opravy 2003–2025"></svg>
+    <div class="tip"></div>
+  </div>
+  <p class="note">Podle účetních závěrek ve sbírce listin. Pro roky 2018–2025 se zůstatky do koruny shodují s výpisy Fio. Velké poklesy jsou vždy velké opravy: 2011 (677 tis. Kč), 2014 stoupačky (242 tis.), 2018 odvlhčení sklepa (550 tis.), 2020 izolace a telefony (259 tis.) a 2023–2025 regenerace. Za roky 2022–2025 závěrky neobsahují výkaz nákladů, opravy jsou proto doplněné z výpisů.</p>
 </section>
 
 <section id="prijmy">
   <div class="label">Příjmy</div>
-  <h2>Příspěvky vlastníků vzrostly o dvě třetiny</h2>
-  <p>Jde o součet všech plateb vlastníků: fond oprav, zálohy na služby (voda) a doplatky vyúčtování, ať přišly přes SIPO nebo převodem. Průměr za měsíc stoupl z 26 900 Kč (2022) na 44 400 Kč (2025–2026). Skok v říjnu 2024 je zvýšení fondu oprav na 30 Kč/m², skok v lednu 2025 navýšení záloh o 300 Kč na byt na správu domu.</p>
+  <h2>Příspěvky vlastníků stály pět let na místě, pak vzrostly o 60 %</h2>
+  <p>Jde o součet všech plateb vlastníků: fond oprav, zálohy na služby (voda) a doplatky vyúčtování, ať přišly přes SIPO nebo převodem. Od roku 2019 do roku 2023 se průměr za měsíc skoro neměnil (26–28 tis. Kč), v letech 2025–2026 je to 44 400 Kč. Graf začíná květnem 2018, kdy se SIPO přesunulo na účet Fio. Skok v říjnu 2024 je zvýšení fondu oprav na 30 Kč/m², skok v lednu 2025 navýšení záloh o 300 Kč na byt na správu domu.</p>
   <div class="chart">
     <svg id="ch-contrib" role="img" aria-label="Měsíční příspěvky vlastníků"></svg>
     <div class="tip"></div>
@@ -184,8 +192,9 @@ footer { font-size: 0.9rem; color: var(--muted); display: grid; gap: 0.4rem; }
   <ul class="checks">
     <li><span><b>Regenerace domu (NZÚ) stála 1 775 522 Kč</b>, placeno v pěti splátkách od 5/2023 do 2/2025. Dotace 855 090 Kč přišla 10. 4. 2024. Čistý náklad pro SVJ byl 920 432 Kč.</span></li>
     <li><span><b>Rok 2026 nese další velké akce:</b> ošetření krovu (199 696 Kč), projektovou dokumentaci (110 000 Kč) a předtím opravu římsy na podzim 2025 (96 526 Kč). Shromáždění v září 2026 navíc řešilo havarijní stav střechy.</span></li>
-    <li><span><b>Provoz domu stojí kolem 190 000 Kč ročně:</b> voda zhruba 80 000 Kč, správce Bytservis 38–40 000 Kč, úklid 26 000 Kč, pojištění 14 415 Kč (beze změny pět let), odměna předsedy 18 000 Kč a revize 8–13 000 Kč.</span></li>
-    <li><span><b>Elektřina společných prostor:</b> v roce 2022 se platily zálohy 8 140 Kč čtvrtletně. Po vyúčtování vrátil E.ON 28 499 Kč a zálohy se snížily, dnes stojí elektřina asi 6 000 Kč ročně.</span></li>
+    <li><span><b>Provoz domu stojí kolem 190 000 Kč ročně:</b> voda zhruba 80 000 Kč, správce Bytservis 38–40 000 Kč, úklid 26 000 Kč, pojištění 14 415 Kč (od roku 2018 beze změny), odměna předsedy 18 000 Kč a revize 8–13 000 Kč.</span></li>
+    <li><span><b>Elektřina společných prostor:</b> v prosinci 2021 se doplácelo 25 120 Kč a v roce 2022 se platily zálohy 8 140 Kč čtvrtletně. Po vyúčtování vrátil E.ON 28 499 Kč a zálohy se snížily. Dnes stojí elektřina asi 6 000 Kč ročně.</span></li>
+    <li><span><b>Voda je největší provozní položka:</b> přes SVJ se platí za celý dům a vlastníci ji hradí v zálohách. Roční náklad vzrostl z 69 500 Kč (2019) na zhruba 80 000 Kč. Do roku 2021 se platilo Vodárenské akciové společnosti, od té doby Službám města Jihlavy.</span></li>
     <li><span><b>Duplicitní platby:</b> v červenci 2025 odešly dvakrát kontrola plynovodu (1 997 Kč) i elektroinstalační práce (672 Kč). Eckert vrátil 672 Kč, vratku za plynovod ve výpisu nevidím.</span></li>
   </ul>
 </section>
@@ -198,17 +207,21 @@ footer { font-size: 0.9rem; color: var(--muted); display: grid; gap: 0.4rem; }
   <div>
     <div class="era">Vznik SVJ (1997–2010)</div>
     <ol class="trail">
-      <li class="key"><span class="when">15. 8. 1997</span><div class="what"><h3>Prohlášení vlastníka</h3><p>Město Jihlava rozdělilo budovu čp. 1948 v Mahlerově ulici na bytové jednotky podle zákona č. 72/1994 Sb. a byty začalo prodávat.</p><span class="src">Archiv / prohlášení vlastníka</span></div></li>
-      <li class="key"><span class="when">7. 12. 2001</span><div class="what"><h3>Zápis SVJ do rejstříku</h3><p>Společenství vlastníků jednotek obytného domu Mahlerova 1948/1 bylo zapsáno u Krajského soudu v Brně (oddíl S, vložka 1603).</p><span class="src">Výpis z rejstříku ve zprávě za 2016</span></div></li>
-      <li><span class="when">1. 1. 2002</span><div class="what"><h3>Správa domu u Bytservisu</h3><p>Účinnost smlouvy o zajišťování správy se společností Bytservis, spol. s r.o. Za SVJ ji podepsali předseda výboru Ing. Jan Strejček a Alena Kolmanová.</p><span class="src">Změna výboru / smlouva o zajišťování správy</span></div></li>
-      <li><span class="when">21. 10. 2010</span><div class="what"><h3>Výbor Kolmanová – Honzárek</h3><p>Předsedkyní se stala Alena Kolmanová, členem výboru Michal Honzárek.</p><span class="src">Výpis z rejstříku</span></div></li>
+      <li class="key"><span class="when">15. 8. 1997</span><div class="what"><h3>Prohlášení vlastníka</h3><p>Město Jihlava rozdělilo budovu čp. 1948 v Mahlerově ulici na 15 bytových jednotek podle zákona č. 72/1994 Sb. a byty začalo prodávat. Spoluvlastnické podíly dávají dohromady 9 345, tedy zhruba 935 m² bytové plochy.</p><span class="src">Archiv / prohlášení vlastníka</span></div></li>
+      <li class="key"><span class="when">3. 10. 2001</span><div class="what"><h3>Ustavující schůze u notářky</h3><p>Schůzi svolalo Statutární město Jihlava a vedl ji Ing. Ludvík Maksymczuk, pozdější jednatel správce Bytservis. Konala se v kanceláři notářky JUDr. Ivanky Parkanové. Ing. Jan Strejček zastupoval na plnou moc všechny ostatní vlastníky, takže bylo přítomno 100 %. Všech 15 bytů už tehdy patřilo soukromým vlastníkům. Shromáždění schválilo stanovy podle vzorových stanov z nařízení vlády 322/2000 Sb. a zvolilo výbor na dva roky: Ing. Jan Strejček (předseda), Alena Kolmanová (místopředsedkyně) a Hana Wohlhöfnerová.</p><span class="src">Sbírka listin SL01 (NZ 356/2001), SL03</span></div></li>
+      <li><span class="when">7. 12. 2001</span><div class="what"><h3>Zápis SVJ do rejstříku</h3><p>Společenství vlastníků jednotek obytného domu Mahlerova 1948/1 bylo zapsáno u Krajského soudu v Brně (oddíl S, vložka 1603), IČ 262 68 108.</p><span class="src">Obchodní rejstřík</span></div></li>
+      <li><span class="when">1. 1. 2002</span><div class="what"><h3>Správa domu u Bytservisu</h3><p>Začala platit smlouva o zajišťování správy se společností Bytservis, spol. s r.o. Za SVJ ji podepsali Ing. Jan Strejček a Alena Kolmanová.</p><span class="src">Změna výboru / smlouva o zajišťování správy</span></div></li>
+      <li><span class="when">3. 10. 2003</span><div class="what"><h3>Výboru skončilo funkční období</h3><p>Nový výbor se ale nevolil dalších sedm let, první výbor dál fungoval bez nového mandátu. Konec období se konstatoval až v roce 2010.</p><span class="src">Sbírka listin SL04</span></div></li>
+      <li class="key"><span class="when">21. 10. 2010</span><div class="what"><h3>Nové stanovy a výbor Kolmanová – Strejček – Honzárek</h3><p>Shromáždění se opět konalo u notářky. Přítomno bylo 66 % podílů, většinou na plnou moc pro Alenu Kolmanovou. Schválilo nové stanovy: výbor na pět let, kontrolní komise nebo revizor, nákup majetku nad 50 000 Kč schvaluje shromáždění. Předsedkyní výboru se stala Alena Kolmanová, místopředsedou Ing. arch. Jan Strejček, členem Michal Honzárek. Z původních vlastníků z roku 2001 jich v domě zůstalo šest z patnácti.</p><span class="src">Sbírka listin SL04 (NZ 143/2010), SL05</span></div></li>
     </ol>
 
-    <div class="era">Opravy rozvodů a nový výbor (2012–2017)</div>
+    <div class="era">Spoření a opravy rozvodů (2003–2017)</div>
     <ol class="trail">
+      <li><span class="when">2003–2010</span><div class="what"><h3>Spoření na termínovaném účtu</h3><p>V roce 2003 stály opravy 195 722 Kč, pak se několik let spořilo. Peníze ležely na běžném a termínovaném účtu u ČSOB a do konce roku 2010 jich přibylo na 578 tis. Kč. V roce 2010 se termínovaný účet zrušil.</p><span class="src">Účetní závěrky 2003–2010 (sbírka listin)</span></div></li>
+      <li class="key"><span class="when">2011</span><div class="what"><h3>Největší oprava před regenerací</h3><p>Opravy za 676 942 Kč spotřebovaly skoro celý fond, z 593 tis. Kč zbylo 86 tis. Kč. O jakou opravu šlo, závěrka neuvádí.</p><span class="src">Účetní závěrka 2011 (sbírka listin)</span></div></li>
       <li><span class="when">2012–2015</span><div class="what"><h3>První opravy</h3><p>2012 nový TV zesilovač (5 273 Kč), 2013 stoupačka kanalizace a vody (36 479 Kč), 2014 výměna stoupaček a ležatého vodovodu (236 066 Kč), 2015 oprava střechy (11 316 Kč).</p><span class="src">Výroční zprávy správce 2016 a 2017</span></div></li>
       <li><span class="when">31. 12. 2016</span><div class="what"><h3>Stav domu podle správce</h3><p>15 bytů a 15 vlastníků, fond oprav 20 Kč/m² (18 690 Kč měsíčně), zůstatek fondu 613 985 Kč. Dům pojištěn u Allianz, účet u ČSOB. Plán na další roky: vodoměry, izolace zdiva, fasáda, vchodové dveře, sklepní okna.</p><span class="src">Zpráva za rok 2016</span></div></li>
-      <li class="key"><span class="when">24. 4. 2017</span><div class="what"><h3>Nový výbor a nové stanovy</h3><p>Shromáždění zvolilo výbor Roman Matějíček (předseda), Petr Varró (místopředseda) a Michal Honzárek a schválilo nové stanovy podle občanského zákoníku. Obojí platí od 27. 4. 2017.</p><span class="src">Archiv / podklady pro nový výbor</span></div></li>
+      <li class="key"><span class="when">24. 4. 2017</span><div class="what"><h3>Nový výbor a stanovy podle občanského zákoníku</h3><p>Funkční období předchozího výboru skončilo už 21. 10. 2015, Ing. arch. Strejček z výboru odešel v listopadu 2016. Shromáždění (65,9 % podílů) zvolilo výbor Roman Matějíček (předseda), Petr Varró (místopředseda) a Michal Honzárek. Zároveň schválilo nové stanovy: výbor na deset let, opravy nad 25 000 Kč a roční plán oprav schvaluje shromáždění, hlasovat se smí i per rollam a dům musí být pojištěn. Do rejstříku zapsáno 9. 8. 2017.</p><span class="src">Sbírka listin SL21–SL23 · obchodní rejstřík</span></div></li>
       <li><span class="when">2017</span><div class="what"><h3>Okapy, popelnice, vodoměry</h3><p>Protizámrzný systém dešťového svodu (20 207 Kč), oprava popelnicového stání (12 076 Kč) a nové bytové vodoměry s odečty od Techemu (11 903 Kč).</p><span class="src">Zpráva za rok 2017 · Vytápění okapů · Vodoměry</span></div></li>
       <li><span class="when">12/2017</span><div class="what"><h3>Účet u Fio banky</h3><p>SVJ si zřídilo účet 2701336622/2010 a převedlo na něj první 100 000 Kč z ČSOB. Fond oprav ke konci roku 2017: 712 006 Kč.</p><span class="src">Fio banka / rámcová smlouva · zpráva 2017</span></div></li>
     </ol>
@@ -217,14 +230,18 @@ footer { font-size: 0.9rem; color: var(--muted); display: grid; gap: 0.4rem; }
     <ol class="trail">
       <li class="key"><span class="when">2–3/2018</span><div class="what"><h3>Odvlhčení sklepa, I. etapa</h3><p>Schůze 22. 1. 2018 schválila zakázku Dorsym s.r.o.: oklepání omítek ve sklepě, vnitřní drenáž kolem všech zdí a nová sklepní okna. Kvůli vícepracím vyšla cena na 386 623 Kč bez DPH (444 616 Kč s DPH) plus okna. Dílo bylo převzato 28. 3. 2018 bez vad.</p><span class="src">Odvlhčení domu / smlouva, dodatek, zápis o odevzdání</span></div></li>
       <li><span class="when">7/2018</span><div class="what"><h3>Pojišťovna DIRECT</h3><p>SVJ vypovědělo pojistku u Allianz ke 3. 7. 2018 a pojistilo dům u DIRECT pojišťovny.</p><span class="src">Pojištění domu</span></div></li>
-      <li><span class="when">2018–2019</span><div class="what"><h3>II. etapa: izolace ve dvoře</h3><p>Na izolaci obvodové zdi ve dvoře přišly nabídky od firem Ferenc (2018) a Dorsym (199 324 Kč, 2019). Na schůzi 22. 5. 2019 se předávaly nové klíče.</p><span class="src">Odvlhčení domu · Schůze 22.5.2019</span></div></li>
-      <li><span class="when">10–12/2020</span><div class="what"><h3>Zvonky, čipy a optika</h3><p>Vlastníci souhlasili s rekonstrukcí domovních telefonů a čipovým vstupem (Elektro Eckert). Výbor povolil T-Mobile zavést do domu optickou síť.</p><span class="src">Souhlas s rekonstrukcí dveří · T-Mobile</span></div></li>
+      <li><span class="when">5–10/2018</span><div class="what"><h3>Peníze se stěhují z ČSOB na Fio</h3><p>Od května 2018 chodí platby vlastníků přes SIPO na účet u Fio. V říjnu 2018 přišel z ČSOB zbytek peněz (100 462 Kč) a starý účet zanikl.</p><span class="src">Výpis účtu</span></div></li>
+      <li><span class="when">2019</span><div class="what"><h3>Sklepní okna, anténa, elektro</h3><p>Sklepní okna (11 903 Kč) a zámečnické práce (5 859 Kč), revize elektroinstalace a v prosinci nový zesilovač televizního signálu (19 150 Kč) a elektropráce (15 553 Kč).</p><span class="src">Výpis účtu</span></div></li>
+      <li class="key"><span class="when">4–6/2020</span><div class="what"><h3>Odvlhčení, II. etapa: izolace domu</h3><p>Na izolaci obvodové zdi ve dvoře přišly v letech 2018–2019 nabídky od firem Ferenc a Dorsym. Práce proběhly na jaře 2020 za 181 713 Kč: záloha 50 000 Kč v dubnu, zbytek 131 713 Kč v červnu.</p><span class="src">Odvlhčení domu / nabídky · výpis účtu</span></div></li>
+      <li><span class="when">10–12/2020</span><div class="what"><h3>Zvonky, čipy a optika</h3><p>Vlastníci souhlasili s rekonstrukcí domovních telefonů včetně kabeláže a čipového vstupu. Elektro Eckert ji dokončil v prosinci 2020 za 59 174 Kč. Výbor zároveň povolil T-Mobile zavést do domu optickou síť.</p><span class="src">Souhlas s rekonstrukcí dveří · T-Mobile · výpis účtu</span></div></li>
+      <li><span class="when">2021</span><div class="what"><h3>Vstup a vyúčtování elektřiny</h3><p>Oprava vstupu (18 400 Kč), oprava vchodových dveří, zasklení oken a revize hromosvodu. V prosinci se doplácelo 25 120 Kč za elektřinu společných prostor.</p><span class="src">Výpis účtu</span></div></li>
       <li><span class="when">6. 10. 2022</span><div class="what"><h3>Schůze o stavu domu</h3><p>Na programu byla volba nového výboru, kontrola střechy, okna a dveře ve společných prostorách, omítky, elektroinstalace, rozdělení půdy na kóje, úklid půdy a sklepů, stromy na dvoře a nespokojenost s Bytservisem.</p><span class="src">Archiv 2022 / schůze říjen 2022</span></div></li>
     </ol>
 
     <div class="era">Regenerace domu (2023–2026)</div>
     <ol class="trail">
-      <li><span class="when">2022–2023</span><div class="what"><h3>Výběr oken a nový výbor</h3><p>Nabídky na okna a dveře přišly od Plastikov, Juropa a VEKA. Schůze 19. 1. 2023 hlasovala písemně. Novým předsedou se stal Michal Preusler, místopředsedou Petr Varró a členem Cyril Kuba (zápis do rejstříku zaplacen 9/2023).</p><span class="src">Archiv 2022 · Schůze 19.1.2023 · výpis účtu</span></div></li>
+      <li><span class="when">2022–2023</span><div class="what"><h3>Výběr oken</h3><p>Nabídky na okna a dveře přišly od Plastikov, Juropa a VEKA. Na schůzi 19. 1. 2023 se hlasovalo písemně, k ní patří i rozpis úklidu mezi vlastníky na rok 2023.</p><span class="src">Archiv 2022 · Schůze 19.1.2023</span></div></li>
+      <li class="key"><span class="when">5. 4. 2023</span><div class="what"><h3>Výbor Preusler – Kuba – Varró</h3><p>Shromáždění odvolalo výbor Matějíček – Varró – Honzárek a zvolilo nový. Předsedou je Michal Preusler, místopředsedou Bc. Cyril Kuba, členem Petr Varró. Do rejstříku zapsáno 3. 10. 2023.</p><span class="src">Sbírka listin SL29, SL30 · obchodní rejstřík</span></div></li>
       <li class="key"><span class="when">8/2023 – 2/2026</span><div class="what"><h3>Regenerace podle Nové zelené úsporám</h3><p>Zateplení stropu sklepa (100 mm), podlahy půdy (300 mm EPS), stěn schodiště a mezonetového bytu, výměna oken a vstupních dveří a nová fasáda ze dvora ve světle šedé barvě. Projekt i technický dozor dělal Ing. Zdeněk Musil. Celkové výdaje činily 1 775 522 Kč, dotace SFŽP 855 090 Kč (vyplacena 10. 4. 2024). Závěrečná zpráva je z 16. 2. 2026.</p><span class="src">Zateplení fasády / závěrečná zpráva TDS, doložení realizace</span></div></li>
       <li><span class="when">1/2024</span><div class="what"><h3>Úklid externě</h3><p>Místo rozpisu služeb mezi vlastníky (2023) uklízí společné prostory externí firma za 2 130 Kč měsíčně.</p><span class="src">Smlouva úklid FLAHO · výpis účtu</span></div></li>
       <li class="key"><span class="when">17. 6. 2024</span><div class="what"><h3>Vyšší příspěvky</h3><p>Shromáždění jednomyslně schválilo fond oprav 30 Kč/m² od 10/2024, navýšení záloh o 300 Kč na byt a měsíc na správu od 1. 1. 2025 a odměnu předsedy 1 500 Kč měsíčně od 10/2024.</p><span class="src">Schůze 17.6.2024 / zápis</span></div></li>
@@ -238,13 +255,13 @@ footer { font-size: 0.9rem; color: var(--muted); display: grid; gap: 0.4rem; }
 </section>
 
 <footer>
-  <p>Zdroje: výpisy Fio 2701336622 (967 pohybů, 1. 2. 2022 – 22. 10. 2026), archiv dokumentů SVJ na Google Disku. Příjmy jsou záměrně souhrnné, bez rozpadu na jednotlivé vlastníky.</p>
+  <p>Zdroje: výpisy Fio 2701336622 (1 495 pohybů, 19. 12. 2017 – 20. 10. 2026), archiv dokumentů SVJ na Google Disku, obchodní rejstřík a sbírka listin (or.justice.cz, ARES) a RÚIAN. Příjmy jsou záměrně souhrnné, bez rozpadu na jednotlivé vlastníky.</p>
   <p>Data přepočítá skript <span class="mono">analyza.py</span>, výstup ukládá do <span class="mono">data.json</span> a do této stránky.</p>
 </footer>
 </main>
 
 <script id="data" type="application/json">
-{"period": ["2022-02-03", "2026-10-20"], "count": 967, "years": [2022, 2023, 2024, 2025, 2026], "income_cats": ["Příspěvky vlastníků", "Dotace NZÚ", "Ostatní příjmy"], "expense_cats": ["Regenerace domu (NZÚ)", "Voda", "Ošetření krovu", "Správce (Bytservis)", "Projektová dokumentace", "Vratky přeplatků vlastníkům", "Oprava římsy", "Pojištění", "Úklid", "Opravy a údržba", "Revize a kontroly", "Odměna předsedy", "Elektřina", "Pokladna a drobné nákupy"], "by_year": {"2022": {"Příspěvky vlastníků": 296182, "Voda": -75601, "Správce (Bytservis)": -32190, "Elektřina": 2939, "Revize a kontroly": -7672, "Vratky přeplatků vlastníkům": -21687, "Ostatní příjmy": 1335, "Opravy a údržba": -5993, "Pojištění": -14415, "Projektová dokumentace": 0, "Ošetření krovu": 0, "Pokladna a drobné nákupy": 0, "Regenerace domu (NZÚ)": 0, "Úklid": 0, "Odměna předsedy": 0, "Oprava římsy": 0}, "2023": {"Příspěvky vlastníků": 335110, "Voda": -81150, "Revize a kontroly": -8439, "Správce (Bytservis)": -38077, "Elektřina": -5300, "Regenerace domu (NZÚ)": -675692, "Vratky přeplatků vlastníkům": -23186, "Pojištění": -14415, "Pokladna a drobné nákupy": -2120, "Projektová dokumentace": 0, "Ošetření krovu": 0, "Opravy a údržba": 0, "Úklid": 0, "Odměna předsedy": 0, "Oprava římsy": 0}, "2024": {"Příspěvky vlastníků": 390568, "Voda": -83297, "Správce (Bytservis)": -39171, "Úklid": -23430, "Revize a kontroly": -13464, "Elektřina": -5877, "Dotace NZÚ": 855090, "Opravy a údržba": -26709, "Vratky přeplatků vlastníkům": -22584, "Regenerace domu (NZÚ)": -738454, "Pojištění": -14415, "Pokladna a drobné nákupy": -747, "Odměna předsedy": -6999, "Projektová dokumentace": 0, "Ošetření krovu": 0, "Oprava římsy": 0}, "2025": {"Příspěvky vlastníků": 532920, "Odměna předsedy": -18000, "Voda": -80071, "Úklid": -27000, "Správce (Bytservis)": -40005, "Opravy a údržba": -18922, "Revize a kontroly": -7783, "Regenerace domu (NZÚ)": -361376, "Elektřina": -6600, "Vratky přeplatků vlastníkům": -21537, "Pojištění": -14415, "Oprava římsy": -96526, "Projektová dokumentace": 0, "Ošetření krovu": 0, "Pokladna a drobné nákupy": 0}, "2026": {"Příspěvky vlastníků": 443973, "Voda": -78416, "Odměna předsedy": -13500, "Úklid": -21518, "Správce (Bytservis)": -37737, "Revize a kontroly": -8087, "Elektřina": -4380, "Vratky přeplatků vlastníkům": -15562, "Pokladna a drobné nákupy": -9804, "Ošetření krovu": -199696, "Pojištění": -14415, "Projektová dokumentace": -110000, "Opravy a údržba": 0, "Regenerace domu (NZÚ)": 0, "Oprava římsy": 0}}, "months": ["2022-02", "2022-03", "2022-04", "2022-05", "2022-06", "2022-07", "2022-08", "2022-09", "2022-10", "2022-11", "2022-12", "2023-01", "2023-02", "2023-03", "2023-04", "2023-05", "2023-06", "2023-07", "2023-08", "2023-09", "2023-10", "2023-11", "2023-12", "2024-01", "2024-02", "2024-03", "2024-04", "2024-05", "2024-06", "2024-07", "2024-08", "2024-09", "2024-10", "2024-11", "2024-12", "2025-01", "2025-02", "2025-03", "2025-04", "2025-05", "2025-06", "2025-07", "2025-08", "2025-09", "2025-10", "2025-11", "2025-12", "2026-01", "2026-02", "2026-03", "2026-04", "2026-05", "2026-06", "2026-07", "2026-08", "2026-09", "2026-10"], "monthly_contrib": [24667, 23765, 35455, 31059, 23967, 26994, 31741, 23853, 24228, 25228, 25228, 25228, 25228, 24228, 24367, 43145, 28183, 27648, 32181, 26779, 26375, 26375, 25375, 26085, 26427, 26585, 42486, 28100, 40808, 26958, 35095, 28349, 34272, 38496, 36902, 38102, 41080, 54608, 44163, 47585, 49760, 48913, 41558, 41258, 39460, 42970, 43461, 41761, 41707, 54750, 43855, 43942, 49012, 41707, 41707, 45862, 39668], "cumulative": [14940, 28979, 46439, 47166, 61406, 66556, 87838, 101964, 92705, 132651, 142898, 165333, 180584, 193577, 199015, 92428, 95329, 111238, 134248, -412600, -395951, -379722, -370371, -353930, -340131, -328841, 554389, 546246, 420244, 432275, 455221, 468691, -118105, -93258, -99860, -96812, -432384, -392885, -362851, -351980, -328490, -296375, -268465, -247890, -222079, -287583, -259175, -231231, -208570, -170911, -141791, -132204, -306143, -405329, -374561, -352975, -328318], "big": [{"date": "2023-05-04", "amount": -121874, "cat": "Regenerace domu (NZÚ)", "text": "stavební práce"}, {"date": "2023-09-12", "amount": -553818, "cat": "Regenerace domu (NZÚ)", "text": "Stavební práce - zálohová faktur Stavební práce - zálohová faktur"}, {"date": "2024-04-10", "amount": 855090, "cat": "Dotace NZÚ", "text": "Regenerace bytového domu Mahlerova1948/1, Jihlava SFŽP ČR"}, {"date": "2024-06-17", "amount": -138454, "cat": "Regenerace domu (NZÚ)", "text": "stavební práce +materiál"}, {"date": "2024-10-07", "amount": -600000, "cat": "Regenerace domu (NZÚ)", "text": "Stavebni prace a material z dota Stavebni prace a material z dota"}, {"date": "2025-02-12", "amount": -361376, "cat": "Regenerace domu (NZÚ)", "text": "Stavebni prace a material z dota Stavebni prace a material z dota"}, {"date": "2025-11-13", "amount": -90225, "cat": "Oprava římsy", "text": "Oprava rimsy Oprava rimsy"}, {"date": "2026-06-30", "amount": -199696, "cat": "Ošetření krovu", "text": "Osetreni krovu objektu Osetreni krovu objektu"}, {"date": "2026-07-08", "amount": -110000, "cat": "Projektová dokumentace", "text": "Projektova dokumentace Projektova dokumentace"}]}
+{"period": ["2017-12-19", "2026-10-20"], "count": 1495, "years": [2018, 2019, 2020, 2021, 2022, 2023, 2024, 2025, 2026], "income_cats": ["Příspěvky vlastníků", "Dotace NZÚ", "Ostatní příjmy"], "expense_cats": ["Regenerace domu (NZÚ)", "Voda", "Správce (Bytservis)", "Ošetření krovu", "Izolace zdiva (II. etapa)", "Vratky přeplatků vlastníkům", "Opravy a údržba", "Pojištění", "Projektová dokumentace", "Oprava římsy", "Revize a kontroly", "Úklid", "Elektřina", "Domovní telefony a čipy", "Odměna předsedy", "Pokladna a drobné nákupy"], "by_year": {"2018": {"Správce (Bytservis)": -24361, "Opravy a údržba": -3668, "Příspěvky vlastníků": 217675, "Revize a kontroly": -4204, "Voda": -56692, "Elektřina": -4369, "Vratky přeplatků vlastníkům": -9308, "Pojištění": -14415, "Ostatní příjmy": 3043, "Převod z ČSOB": 100462, "Regenerace domu (NZÚ)": 0, "Izolace zdiva (II. etapa)": 0, "Domovní telefony a čipy": 0, "Ošetření krovu": 0, "Oprava římsy": 0, "Projektová dokumentace": 0, "Odměna předsedy": 0, "Pokladna a drobné nákupy": 0, "Úklid": 0}, "2019": {"Správce (Bytservis)": -32326, "Příspěvky vlastníků": 311499, "Voda": -69557, "Revize a kontroly": -12091, "Opravy a údržba": -55345, "Elektřina": -4709, "Vratky přeplatků vlastníkům": -14205, "Pojištění": -14415, "Ostatní příjmy": 4853, "Regenerace domu (NZÚ)": 0, "Izolace zdiva (II. etapa)": 0, "Domovní telefony a čipy": 0, "Ošetření krovu": 0, "Oprava římsy": 0, "Projektová dokumentace": 0, "Odměna předsedy": 0, "Pokladna a drobné nákupy": 0, "Úklid": 0}, "2020": {"Příspěvky vlastníků": 316347, "Voda": -76766, "Správce (Bytservis)": -32326, "Revize a kontroly": -7793, "Elektřina": -4285, "Izolace zdiva (II. etapa)": -181713, "Pojištění": -14415, "Vratky přeplatků vlastníkům": -14271, "Ostatní příjmy": 4311, "Pokladna a drobné nákupy": -600, "Opravy a údržba": -496, "Domovní telefony a čipy": -59174, "Regenerace domu (NZÚ)": 0, "Ošetření krovu": 0, "Oprava římsy": 0, "Projektová dokumentace": 0, "Odměna předsedy": 0, "Úklid": 0}, "2021": {"Příspěvky vlastníků": 330312, "Opravy a údržba": -25494, "Správce (Bytservis)": -32642, "Voda": -79476, "Elektřina": -28930, "Revize a kontroly": -9238, "Vratky přeplatků vlastníkům": -19547, "Ostatní příjmy": 216, "Pojištění": -14415, "Regenerace domu (NZÚ)": 0, "Izolace zdiva (II. etapa)": 0, "Domovní telefony a čipy": 0, "Ošetření krovu": 0, "Oprava římsy": 0, "Projektová dokumentace": 0, "Odměna předsedy": 0, "Pokladna a drobné nákupy": 0, "Úklid": 0}, "2022": {"Příspěvky vlastníků": 320849, "Elektřina": -5201, "Voda": -80072, "Správce (Bytservis)": -36116, "Revize a kontroly": -7672, "Vratky přeplatků vlastníkům": -21687, "Ostatní příjmy": 1335, "Opravy a údržba": -5993, "Pojištění": -14415, "Regenerace domu (NZÚ)": 0, "Izolace zdiva (II. etapa)": 0, "Domovní telefony a čipy": 0, "Ošetření krovu": 0, "Oprava římsy": 0, "Projektová dokumentace": 0, "Odměna předsedy": 0, "Pokladna a drobné nákupy": 0, "Úklid": 0}, "2023": {"Příspěvky vlastníků": 335110, "Voda": -81150, "Revize a kontroly": -8439, "Správce (Bytservis)": -38077, "Elektřina": -5300, "Regenerace domu (NZÚ)": -675692, "Vratky přeplatků vlastníkům": -23186, "Pojištění": -14415, "Pokladna a drobné nákupy": -2120, "Izolace zdiva (II. etapa)": 0, "Domovní telefony a čipy": 0, "Ošetření krovu": 0, "Oprava římsy": 0, "Projektová dokumentace": 0, "Odměna předsedy": 0, "Opravy a údržba": 0, "Úklid": 0}, "2024": {"Příspěvky vlastníků": 390568, "Voda": -83297, "Správce (Bytservis)": -39171, "Úklid": -23430, "Revize a kontroly": -13464, "Elektřina": -5877, "Dotace NZÚ": 855090, "Opravy a údržba": -26709, "Vratky přeplatků vlastníkům": -22584, "Regenerace domu (NZÚ)": -738454, "Pojištění": -14415, "Pokladna a drobné nákupy": -747, "Odměna předsedy": -6999, "Izolace zdiva (II. etapa)": 0, "Domovní telefony a čipy": 0, "Ošetření krovu": 0, "Oprava římsy": 0, "Projektová dokumentace": 0}, "2025": {"Příspěvky vlastníků": 532920, "Odměna předsedy": -18000, "Voda": -80071, "Úklid": -27000, "Správce (Bytservis)": -40005, "Opravy a údržba": -18922, "Revize a kontroly": -7783, "Regenerace domu (NZÚ)": -361376, "Elektřina": -6600, "Vratky přeplatků vlastníkům": -21537, "Pojištění": -14415, "Oprava římsy": -96526, "Izolace zdiva (II. etapa)": 0, "Domovní telefony a čipy": 0, "Ošetření krovu": 0, "Projektová dokumentace": 0, "Pokladna a drobné nákupy": 0}, "2026": {"Příspěvky vlastníků": 443973, "Voda": -78416, "Odměna předsedy": -13500, "Úklid": -21518, "Správce (Bytservis)": -37737, "Revize a kontroly": -8087, "Elektřina": -4380, "Vratky přeplatků vlastníkům": -15562, "Pokladna a drobné nákupy": -9804, "Ošetření krovu": -199696, "Pojištění": -14415, "Projektová dokumentace": -110000, "Regenerace domu (NZÚ)": 0, "Izolace zdiva (II. etapa)": 0, "Domovní telefony a čipy": 0, "Oprava římsy": 0, "Opravy a údržba": 0}}, "months": ["2017-12", "2018-01", "2018-02", "2018-03", "2018-04", "2018-05", "2018-06", "2018-07", "2018-08", "2018-09", "2018-10", "2018-11", "2018-12", "2019-01", "2019-02", "2019-03", "2019-04", "2019-05", "2019-06", "2019-07", "2019-08", "2019-09", "2019-10", "2019-11", "2019-12", "2020-01", "2020-02", "2020-03", "2020-04", "2020-05", "2020-06", "2020-07", "2020-08", "2020-09", "2020-10", "2020-11", "2020-12", "2021-01", "2021-02", "2021-03", "2021-04", "2021-05", "2021-06", "2021-07", "2021-08", "2021-09", "2021-10", "2021-11", "2021-12", "2022-01", "2022-02", "2022-03", "2022-04", "2022-05", "2022-06", "2022-07", "2022-08", "2022-09", "2022-10", "2022-11", "2022-12", "2023-01", "2023-02", "2023-03", "2023-04", "2023-05", "2023-06", "2023-07", "2023-08", "2023-09", "2023-10", "2023-11", "2023-12", "2024-01", "2024-02", "2024-03", "2024-04", "2024-05", "2024-06", "2024-07", "2024-08", "2024-09", "2024-10", "2024-11", "2024-12", "2025-01", "2025-02", "2025-03", "2025-04", "2025-05", "2025-06", "2025-07", "2025-08", "2025-09", "2025-10", "2025-11", "2025-12", "2026-01", "2026-02", "2026-03", "2026-04", "2026-05", "2026-06", "2026-07", "2026-08", "2026-09", "2026-10"], "monthly_contrib": [0, 2114, 2114, 2114, 2114, 22639, 22639, 37558, 25337, 24139, 26114, 26328, 24467, 24467, 24467, 27208, 24467, 24467, 24467, 36924, 24359, 27270, 24359, 24520, 24520, 24520, 24520, 24520, 24520, 24520, 24520, 43482, 24520, 25787, 25450, 25457, 24527, 22651, 24511, 23581, 36984, 25727, 20500, 28142, 45777, 27521, 23833, 26683, 24401, 24667, 24667, 23765, 35455, 31059, 23967, 26994, 31741, 23853, 24228, 25228, 25228, 25228, 25228, 24228, 24367, 43145, 28183, 27648, 32181, 26779, 26375, 26375, 25375, 26085, 26427, 26585, 42486, 28100, 40808, 26958, 35095, 28349, 34272, 38496, 36902, 38102, 41080, 54608, 44163, 47585, 49760, 48913, 41558, 41258, 39460, 42970, 43461, 41761, 41707, 54750, 43855, 43942, 49012, 41707, 41707, 45862, 39668], "cumulative": [100000, 97526, 99640, 99244, 92046, 105372, 95135, 126183, 140657, 159489, 276654, 290376, 304163, 318220, 329753, 348878, 363935, 363740, 364636, 397003, 398341, 414931, 426617, 438250, 417867, 431977, 442385, 456381, 421491, 436359, 292854, 329784, 342623, 357730, 372261, 388606, 346686, 347326, 363141, 381377, 408950, 390162, 385783, 401148, 437515, 453307, 462768, 479906, 467471, 475600, 490541, 504579, 522040, 522766, 537006, 542156, 563438, 577565, 568306, 608251, 618499, 640933, 656184, 669177, 674616, 568028, 570929, 586838, 609849, 63000, 79649, 95878, 105229, 121671, 135469, 146759, 1029989, 1021847, 895844, 907875, 930821, 944292, 357495, 382342, 375740, 378789, 43216, 82715, 112749, 123620, 147110, 179226, 207135, 227710, 253521, 188017, 216425, 244370, 267031, 304689, 333809, 343396, 169458, 70272, 101039, 122625, 147282], "balance": 147282, "last_date": "2026-10-20", "big": [{"date": "2017-12-19", "amount": 100000, "cat": "Převod z ČSOB", "text": "SPOL.VL.MAHLEROVA 1"}, {"date": "2018-10-12", "amount": 100462, "cat": "Převod z ČSOB", "text": "Z 131072928/0300SPOL.VL.MAHLEROVA 1 UHRADA DO JPU"}, {"date": "2020-04-07", "amount": -50000, "cat": "Izolace zdiva (II. etapa)", "text": "záloha na stavební práce"}, {"date": "2020-06-04", "amount": -131713, "cat": "Izolace zdiva (II. etapa)", "text": "izolace domu"}, {"date": "2020-12-08", "amount": -59174, "cat": "Domovní telefony a čipy", "text": "rekonstr. dom. telefonů"}, {"date": "2023-05-04", "amount": -121874, "cat": "Regenerace domu (NZÚ)", "text": "stavební práce"}, {"date": "2023-09-12", "amount": -553818, "cat": "Regenerace domu (NZÚ)", "text": "Stavební práce - zálohová faktur Stavební práce - zálohová faktur"}, {"date": "2024-04-10", "amount": 855090, "cat": "Dotace NZÚ", "text": "Regenerace bytového domu Mahlerova1948/1, Jihlava SFŽP ČR"}, {"date": "2024-06-17", "amount": -138454, "cat": "Regenerace domu (NZÚ)", "text": "stavební práce +materiál"}, {"date": "2024-10-07", "amount": -600000, "cat": "Regenerace domu (NZÚ)", "text": "Stavebni prace a material z dota Stavebni prace a material z dota"}, {"date": "2025-02-12", "amount": -361376, "cat": "Regenerace domu (NZÚ)", "text": "Stavebni prace a material z dota Stavebni prace a material z dota"}, {"date": "2025-11-13", "amount": -90225, "cat": "Oprava římsy", "text": "Oprava rimsy Oprava rimsy"}, {"date": "2026-06-30", "amount": -199696, "cat": "Ošetření krovu", "text": "Osetreni krovu objektu Osetreni krovu objektu"}, {"date": "2026-07-08", "amount": -110000, "cat": "Projektová dokumentace", "text": "Projektova dokumentace Projektova dokumentace"}]}
 </script>
 <script>
 const D = JSON.parse(document.getElementById('data').textContent);
@@ -291,15 +308,15 @@ function yAxis(svg, W, P, H, max, ticks, fmtTick, min = 0) {
 const Y = D.years, inc = D.income_cats, exp = D.expense_cats;
 const incY = Y.map(y => sum(inc.map(c => D.by_year[y][c] || 0)));
 const expY = Y.map(y => -sum(exp.map(c => D.by_year[y][c] || 0)));
-const label = y => y === 2022 ? '2022 (2–12)' : y === 2026 ? '2026 (1–10)' : String(y);
+const label = y => y === 2018 ? '2018*' : y === 2026 ? '2026 (1–10)' : String(y);
 
 // tiles
 const totInc = sum(incY), totExp = sum(expY), dot = D.by_year[2024]['Dotace NZÚ'];
 document.getElementById('tiles').innerHTML = [
   [kc(totInc), 'příjmy celkem'],
-  [kc(totInc - dot), 'z toho od vlastníků a ostatní'],
+  [kc(dot), 'z toho dotace NZÚ'],
   [kc(totExp), 'výdaje celkem'],
-  [kc(totInc - totExp), 'změna zůstatku'],
+  [kc(D.balance), 'zůstatek k ' + D.last_date.split('-').reverse().map(Number).join('. ')],
 ].map(([v, k]) => `<div class="tile"><span class="v">${v}</span><span class="k">${k}</span></div>`).join('');
 
 // 1) yearly grouped bars
@@ -314,7 +331,7 @@ document.getElementById('tiles').innerHTML = [
     [[incY[i], 'var(--income)', -1], [expY[i], 'var(--expense)', 1]].forEach(([v, col, side]) => {
       const h = v / max * H, x = cx + (side < 0 ? -bw - 1 : 1);
       el('path', {d: barPath(x, P.t + H - h, bw, h, 4), fill: col}, svg);
-      el('text', {x: x + bw / 2, y: P.t + H - h - 5, 'text-anchor': 'middle', class: 'val'}, svg).textContent = short(v);
+      el('text', {x: x + bw / 2, y: P.t + H - h - 5, 'text-anchor': 'middle', class: 'val', style: 'font-size:10px'}, svg).textContent = fmt(v / 1000);
     });
     el('text', {x: cx, y: Hh - 10, 'text-anchor': 'middle'}, svg).textContent = label(y);
     const hit = el('rect', {x: cx - gw / 2, y: P.t, width: gw, height: H, class: 'hit'}, svg);
@@ -330,7 +347,7 @@ document.getElementById('tiles').innerHTML = [
   const svg = document.getElementById('ch-cum'), W = 720, Hh = 240, P = {t: 16, r: 10, b: 28, l: 62}, H = Hh - P.t - P.b;
   svg.setAttribute('viewBox', `0 0 ${W} ${Hh}`);
   const v = D.cumulative, lo = Math.min(0, ...v), hi = Math.max(0, ...v);
-  const step = 200000, min = Math.floor(lo / step) * step, max = Math.ceil(hi / step) * step;
+  const step = 250000, min = Math.floor(lo / step) * step, max = Math.ceil(hi / step) * step;
   yAxis(svg, W, P, H, max, (max - min) / step, short, min);
   const n = v.length, x = i => P.l + (W - P.l - P.r) * i / (n - 1), y = val => P.t + H - (val - min) / (max - min) * H;
   D.months.forEach((m, i) => { if (m.endsWith('-01')) el('text', {x: x(i), y: Hh - 8, 'text-anchor': 'middle'}, svg).textContent = m.slice(0, 4); });
@@ -345,7 +362,7 @@ document.getElementById('tiles').innerHTML = [
     dot.setAttribute('cx', x(i)); dot.setAttribute('cy', y(v[i])); dot.setAttribute('opacity', 1);
     cross.setAttribute('x1', x(i)); cross.setAttribute('x2', x(i)); cross.setAttribute('opacity', 1);
     const [yy, mm] = D.months[i].split('-');
-    tt.show(`<strong>${MONTHS[+mm - 1]} ${yy}</strong><br>Změna od 2/2022 <b>${kc(v[i])}</b>`, e);
+    tt.show(`<strong>${MONTHS[+mm - 1]} ${yy}</strong><br>Zůstatek <b>${kc(v[i])}</b>`, e);
   });
   hit.addEventListener('mouseleave', () => { tt.hide(); dot.setAttribute('opacity', 0); cross.setAttribute('opacity', 0); });
 })();
@@ -354,10 +371,11 @@ document.getElementById('tiles').innerHTML = [
 (function () {
   const svg = document.getElementById('ch-contrib'), W = 720, Hh = 240, P = {t: 16, r: 8, b: 28, l: 62}, H = Hh - P.t - P.b;
   svg.setAttribute('viewBox', `0 0 ${W} ${Hh}`);
-  const v = D.monthly_contrib, n = v.length, max = niceMax(Math.max(...v));
+  const from = D.months.indexOf('2018-05'), months = D.months.slice(from);
+  const v = D.monthly_contrib.slice(from), n = v.length, max = niceMax(Math.max(...v));
   yAxis(svg, W, P, H, max, 4, short);
   const gw = (W - P.l - P.r) / n, bw = Math.max(2, gw - 2), tt = tooltip(svg);
-  D.months.forEach((m, i) => {
+  months.forEach((m, i) => {
     const h = v[i] / max * H, x = P.l + gw * i + (gw - bw) / 2;
     const b = el('path', {d: barPath(x, P.t + H - h, bw, h, Math.min(3, bw / 2)), fill: 'var(--income)', class: 'bar'}, svg);
     if (m.endsWith('-01')) el('text', {x: x, y: Hh - 8, 'text-anchor': 'start'}, svg).textContent = m.slice(0, 4);
@@ -368,7 +386,7 @@ document.getElementById('tiles').innerHTML = [
   });
   // annotate increases
   [['2024-10', 'FO 30 Kč/m²'], ['2025-01', '+300 Kč/byt']].forEach(([m, t], k) => {
-    const i = D.months.indexOf(m); if (i < 0) return;
+    const i = months.indexOf(m); if (i < 0) return;
     const x = P.l + gw * i + gw / 2;
     el('line', {x1: x, x2: x, y1: P.t + 8 + k * 16, y2: P.t + H, stroke: 'var(--ink)', 'stroke-dasharray': '2 3', opacity: .5}, svg);
     el('text', {x: x - 4, y: P.t + 6 + k * 16, 'text-anchor': 'end', class: 'val'}, svg).textContent = t;
@@ -389,6 +407,27 @@ document.getElementById('tiles').innerHTML = [
     el('text', {x: P.l + w + 6, y: y + row / 2 + 4, class: 'val'}, svg).textContent = short(v);
     const hit = el('rect', {x: 0, y: y, width: W, height: row, class: 'hit'}, svg);
     hit.addEventListener('mousemove', e => tt.show(`<strong>${c}</strong><br>Celkem <b>${kc(v)}</b><br>${(v / totExp * 100).toLocaleString('cs-CZ', {maximumFractionDigits: 1})} % výdajů`, e));
+    hit.addEventListener('mouseleave', tt.hide);
+  });
+})();
+
+// 5) long-term: year-end money (bank + cash) vs repairs, from annual accounts
+(function () {
+  const Z = [[2003,307239,195722],[2004,361892,36461],[2005,363243,47259],[2006,422656,16307],[2007,390743,87247],[2008,449965,4996],[2009,493252,13319],[2010,577912,13839],[2011,55945,676942],[2012,204110,7303],[2013,325809,50656],[2014,235854,241872],[2015,400731,23612],[2016,581596,0],[2017,680337,49820],[2018,306752,549625],[2019,420002,52465],[2020,348821,259287],[2021,469605,7094],[2022,620633,5993],[2023,107364,675692],[2024,377874,738454],[2025,218292,457902]];
+  const svg = document.getElementById('ch-long'), W = 720, Hh = 260, P = {t: 14, r: 6, b: 28, l: 62}, H = Hh - P.t - P.b;
+  svg.setAttribute('viewBox', `0 0 ${W} ${Hh}`);
+  const max = 800000;
+  yAxis(svg, W, P, H, max, 4, short);
+  const gw = (W - P.l - P.r) / Z.length, bw = Math.max(3, gw * 0.36), tt = tooltip(svg);
+  Z.forEach(([y, bal, rep], i) => {
+    const cx = P.l + gw * i + gw / 2;
+    [[bal, 'var(--income)', -1], [Math.min(rep, max), 'var(--expense)', 1]].forEach(([v, col, side]) => {
+      const h = Math.max(1, v / max * H), x = cx + (side < 0 ? -bw - 1 : 1);
+      if (v > 0) el('path', {d: barPath(x, P.t + H - h, bw, h, 3), fill: col}, svg);
+    });
+    if (y % 2 === 1 || y === 2025) el('text', {x: cx, y: Hh - 8, 'text-anchor': 'middle'}, svg).textContent = y;
+    const hit = el('rect', {x: cx - gw / 2, y: P.t, width: gw, height: H, class: 'hit'}, svg);
+    hit.addEventListener('mousemove', e => tt.show(`<strong>${y}</strong><br>Peníze k 31. 12. <b>${kc(bal)}</b><br>Opravy <b>${kc(rep)}</b>`, e));
     hit.addEventListener('mouseleave', tt.hide);
   });
 })();
