@@ -96,6 +96,10 @@ tr.sum td { font-weight: 600; border-top: 2px solid var(--line); }
 tr.grp td { background: var(--surface); font-family: var(--mono); font-size: 0.75rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--accent); }
 tbody tr:last-child td { border-bottom: 0; }
 
+.owners td { font-family: var(--body); font-size: 0.92rem; text-align: left; white-space: normal; }
+.owners td:first-child { font-family: var(--mono); font-size: 0.85rem; white-space: nowrap; }
+.owners th { text-align: left; }
+.owners tr.same td { background: var(--accent-soft); }
 /* findings */
 .checks { margin: 0; padding: 0; list-style: none; display: grid; gap: 0.9rem; }
 .checks li { display: grid; grid-template-columns: 1.4rem minmax(0, 1fr); gap: 0.6rem; }
@@ -252,6 +256,30 @@ footer { font-size: 0.9rem; color: var(--muted); display: grid; gap: 0.4rem; }
       <li class="key"><span class="when">15. 10. 2026</span><div class="what"><h3>Výpověď správci</h3><p>SVJ vypovědělo po téměř 25 letech smlouvu s Bytservisem. Výpovědní lhůta je šest měsíců, smlouva skončí 30. 4. 2027.</p><span class="src">Změna výboru / výpověď smlouvy o správě</span></div></li>
     </ol>
   </div>
+
+  <h3>Vlastníci bytů podle veřejných listin</h3>
+  <p>Seznamy vlastníků jsou přílohou notářských zápisů ve sbírce listin obchodního rejstříku. Jména jsou opsaná přesně podle listin. Zvýrazněné byty měly v roce 2010 stejného vlastníka jako v roce 2001.</p>
+  <div class="tbl-wrap owners"><table>
+    <thead><tr><th>Byt</th><th>3. 10. 2001</th><th>21. 10. 2010</th></tr></thead>
+    <tbody>
+      <tr><td>001</td><td>Salátová Danuše</td><td>Čajko Oleg Ing.</td></tr>
+      <tr><td>002</td><td>Jirků Alena a Milan</td><td>Voborník Petr</td></tr>
+      <tr class="same"><td>003</td><td>Kučerová Hana (připsáno: Wohlhöfnerová Kučerová)</td><td>Wohlhöfnerová Kučerová Hana</td></tr>
+      <tr class="same"><td>004</td><td>Wejwoda Petr</td><td>Wejwoda Petr</td></tr>
+      <tr><td>005</td><td>Šebesta Jiří a Marie</td><td>Honzárek Michal a Mikletičová Lenka</td></tr>
+      <tr><td>006</td><td>Zourek Jiří</td><td>Malínek Jiří Ing.</td></tr>
+      <tr><td>007</td><td>Vejvodová Marcela</td><td>Varro Petr, Neubauerová Eva</td></tr>
+      <tr class="same"><td>008</td><td>Tesař Alois</td><td>Tesař Alois</td></tr>
+      <tr class="same"><td>009</td><td>Kolmanová Zdenka</td><td>Kolmanová Zdenka</td></tr>
+      <tr class="same"><td>010</td><td>Kolman Miloš a Alena</td><td>Kolman Miloš a Alena</td></tr>
+      <tr><td>011</td><td>Volklová Radka a Libor</td><td>Kovář Ivo Ing., CSc. a Marcela</td></tr>
+      <tr><td>012</td><td>Rožek Pavel a Hana</td><td>Matějíček Roman Mgr. a Radka Bc. MgA</td></tr>
+      <tr class="same"><td>013</td><td>ing. Strejček Jan a Jarmila</td><td>Ing.arch. Strejček Jan a Jarmila MUDr.</td></tr>
+      <tr><td>014</td><td>Grunt Pavel</td><td>Erol Andrea</td></tr>
+      <tr><td>015</td><td>Pejcalová Simona a Jaroslav</td><td>Lnéníčková Alena</td></tr>
+    </tbody>
+  </table></div>
+  <p class="note">Zdroj: sbírka listin SVJ, notářské zápisy NZ 356/2001 (příloha č. 1) a NZ 143/2010 (příloha č. 1), or.justice.cz. Novější seznamy veřejně nevyšly. Aktuální vlastníky jednotek ukazuje <a href="https://nahlizenidokn.cuzk.gov.cz/">Nahlížení do katastru nemovitostí</a> (budova čp. 1948, k. ú. Jihlava).</p>
 </section>
 
 <footer>
