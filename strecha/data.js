@@ -9,8 +9,8 @@ window.SITE_DATA = {
       //           historie: [{ datum: "2026-11-11", text: "..." }] }]
       firms: [
         {
-          id: "bimi",
-          firma: "Bimi",
+          id: "bini",
+          firma: "Bini",
           kontakt: "p. Olejníček, 773 742 870",
           cenaBezDph: 4150000,
           historie: [
