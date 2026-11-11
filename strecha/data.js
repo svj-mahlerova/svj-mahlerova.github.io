@@ -29,7 +29,9 @@ window.SITE_DATA = {
           id: "centrostav",
           firma: "Centrostav",
           kontakt: "773 501 983",
-          historie: []
+          historie: [
+            { datum: "2026-11-11", text: "Ozvou se. Pošlou někoho, kdo vyřeší akutní problémy před zimou a zároveň zaměří střechu, aby mohli udělat nabídku." }
+          ]
         },
         {
           id: "ip-polna",
