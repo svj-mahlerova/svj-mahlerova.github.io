@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>SVJ Mahlerova 1 – střecha a solární panely</title>
+<style>
+  body { font-family: system-ui, sans-serif; margin: 0; background: #f5f6f8; color: #222; line-height: 1.5; }
+  header { background: #2d4a6b; color: #fff; padding: 1.5rem; }
+  header h1 { margin: 0; font-size: 1.6rem; }
+  header p { margin: .3rem 0 0; opacity: .85; font-size: .95rem; }
+  main { max-width: 1100px; margin: 0 auto; padding: 1.5rem; }
+  section { background: #fff; border-radius: 8px; padding: 1.25rem; margin-bottom: 1.5rem; box-shadow: 0 1px 3px rgba(0,0,0,.08); }
+  h2 { margin-top: 0; font-size: 1.25rem; color: #2d4a6b; }
+  .table-wrap { overflow-x: auto; }
+  table { border-collapse: collapse; width: 100%; font-size: .92rem; }
+  th, td { text-align: left; padding: .5rem; border-bottom: 1px solid #e3e6ea; vertical-align: top; }
+  th { background: #f0f3f7; white-space: nowrap; }
+  .note { border-left: 3px solid #2d4a6b; padding: .2rem 0 .2rem .9rem; margin: 0 0 1rem; }
+  .note time { font-size: .85rem; color: #666; }
+  .note div { white-space: pre-wrap; }
+  .empty { color: #777; font-style: italic; }
+  footer { text-align: center; color: #777; font-size: .85rem; padding: 1rem; }
+</style>
+</head>
+<body>
+<header>
+  <h1>SVJ Mahlerova 1</h1>
+  <p>Oprava střechy a instalace solárních panelů</p>
+</header>
+<main id="app"></main>
+<footer id="updated"></footer>
+<script src="data.js"></script>
+<script>
+  const D = window.SITE_DATA;
+  const esc = s => String(s ?? "").replace(/[&<>"']/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
+  const cell = v => esc(v || "–");
+  const money = v => typeof v === "number" ? esc(v.toLocaleString("cs-CZ")) + " Kč" : cell(v);
+
+  const offersTable = offers => offers.length ? `
+    <div class="table-wrap"><table>
+      <tr><th>Firma</th><th>Kontakt</th><th>Datum</th><th>Cena bez DPH</th><th>Cena s DPH</th><th>Záruka</th><th>Termín</th><th>Rozsah</th><th>Poznámka</th><th>Soubor</th></tr>
+      ${offers.map(o => `<tr>
+        <td>${cell(o.firma)}</td><td>${cell(o.kontakt)}</td><td>${cell(o.datum)}</td>
+        <td>${money(o.cenaBezDph)}</td><td>${money(o.cenaSDph)}</td>
+        <td>${cell(o.zaruka)}</td><td>${cell(o.termin)}</td><td>${cell(o.rozsah)}</td><td>${cell(o.poznamka)}</td>
+        <td>${o.soubor ? `<a href="${esc(o.soubor)}">otevřít</a>` : "–"}</td>
+      </tr>`).join("")}
+    </table></div>` : `<p class="empty">Zatím žádné nabídky.</p>`;
+
+  const notesHtml = D.notes.length
+    ? [...D.notes].sort((a, b) => b.datum.localeCompare(a.datum))
+        .map(n => `<div class="note"><time>${cell(n.datum)}</time><div>${cell(n.text)}</div></div>`).join("")
+    : `<p class="empty">Zatím žádné poznámky.</p>`;
+
+  document.getElementById("app").innerHTML = `
+    ${D.projects.map(p => `
+      <section>
+        <h2>${cell(p.title)}</h2>
+        ${p.description ? `<p>${cell(p.description)}</p>` : ""}
+        ${offersTable(p.offers)}
+      </section>`).join("")}
+    <section>
+      <h2>Poznámky a aktualizace</h2>
+      ${notesHtml}
+    </section>`;
+  document.getElementById("updated").textContent = `Naposledy aktualizováno: ${D.updated}`;
+</script>
+</body>
+</html>
