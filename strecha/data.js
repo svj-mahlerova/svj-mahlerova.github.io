@@ -5,30 +5,39 @@ window.SITE_DATA = {
       id: "strecha",
       title: "Oprava střechy",
       description: "",
-      // offers: [{ firma, kontakt, datum, cenaBezDph, cenaSDph, zaruka, termin, rozsah, poznamka, soubor }]
-      offers: [
+      // firms: [{ id, firma, kontakt, cenaBezDph, cenaSDph, zaruka, termin, rozsah, soubor,
+      //           historie: [{ datum: "2026-11-11", text: "..." }] }]
+      firms: [
         {
+          id: "bimi",
           firma: "Bimi",
           kontakt: "p. Olejníček, 773 742 870",
-          datum: "2026-10-24",
           cenaBezDph: 4150000,
-          poznamka: "24. 10.: zavolat a říct mu o položkovou nabídku"
+          historie: [
+            { datum: "2026-10-24", text: "Zavolat a říct mu o položkovou nabídku." }
+          ]
         },
         {
+          id: "global",
           firma: "GLOBAL",
           kontakt: "p. Bílek, 602 740 841",
-          datum: "2026-11-10",
-          poznamka: "10. 11.: přijde změřit"
+          historie: [
+            { datum: "2026-11-10", text: "Přijde změřit." }
+          ]
         },
         {
+          id: "centrostav",
           firma: "Centrostav",
-          kontakt: "773 501 983"
+          kontakt: "773 501 983",
+          historie: []
         },
         {
+          id: "ip-polna",
           firma: "IP Polná",
           kontakt: "Lukáš Váka, 725 260 992",
-          datum: "2026-11-11",
-          poznamka: "11. 11.: ozve se, pak domluvíme schůzku"
+          historie: [
+            { datum: "2026-11-11", text: "Ozve se, pak domluvíme schůzku." }
+          ]
         }
       ]
     },
@@ -36,7 +45,7 @@ window.SITE_DATA = {
       id: "solar",
       title: "Solární panely",
       description: "",
-      offers: []
+      firms: []
     }
   ],
   // notes: [{ datum: "2026-11-11", text: "..." }]

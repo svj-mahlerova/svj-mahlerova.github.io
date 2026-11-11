@@ -10,13 +10,30 @@
   header { background: #2d4a6b; color: #fff; padding: 1.5rem; }
   header h1 { margin: 0; font-size: 1.6rem; }
   header p { margin: .3rem 0 0; opacity: .85; font-size: .95rem; }
-  main { max-width: 1100px; margin: 0 auto; padding: 1.5rem; }
+  main { max-width: 1100px; margin: 0 auto; padding: 1.5rem 1rem; }
   section { background: #fff; border-radius: 8px; padding: 1.25rem; margin-bottom: 1.5rem; box-shadow: 0 1px 3px rgba(0,0,0,.08); }
   h2 { margin-top: 0; font-size: 1.25rem; color: #2d4a6b; }
-  .table-wrap { overflow-x: auto; }
-  table { border-collapse: collapse; width: 100%; font-size: .92rem; }
-  th, td { text-align: left; padding: .5rem; border-bottom: 1px solid #e3e6ea; vertical-align: top; }
-  th { background: #f0f3f7; white-space: nowrap; }
+
+  .tabs { display: flex; flex-wrap: wrap; gap: .25rem; border-bottom: 2px solid #2d4a6b; margin-bottom: 1rem; }
+  .tabs button { font: inherit; border: 1px solid #d5dbe3; border-bottom: none; background: #f0f3f7; color: #2d4a6b;
+                 padding: .45rem .9rem; border-radius: 6px 6px 0 0; cursor: pointer; }
+  .tabs button:hover { background: #e3e9f1; }
+  .tabs button[aria-selected="true"] { background: #2d4a6b; color: #fff; border-color: #2d4a6b; }
+  .tabs .count { font-size: .8em; opacity: .75; margin-left: .3rem; }
+
+  .summary { display: grid; grid-template-columns: max-content 1fr; gap: .3rem 1rem; margin: 0 0 1.25rem; }
+  .summary dt { color: #666; }
+  .summary dd { margin: 0; }
+  h3 { font-size: 1rem; margin: 0 0 .75rem; color: #2d4a6b; }
+
+  .timeline { list-style: none; margin: 0; padding: 0 0 0 1rem; border-left: 2px solid #c9d3df; }
+  .timeline li { position: relative; padding: 0 0 1rem .9rem; }
+  .timeline li::before { content: ""; position: absolute; left: -1.42rem; top: .45rem; width: .7rem; height: .7rem;
+                         border-radius: 50%; background: #2d4a6b; border: 2px solid #fff; }
+  .timeline li:last-child::before { background: #e08a1e; }
+  .timeline time { font-size: .85rem; color: #666; display: block; }
+  .timeline div { white-space: pre-wrap; }
+
   .note { border-left: 3px solid #2d4a6b; padding: .2rem 0 .2rem .9rem; margin: 0 0 1rem; }
   .note time { font-size: .85rem; color: #666; }
   .note div { white-space: pre-wrap; }
@@ -36,36 +53,90 @@
   const D = window.SITE_DATA;
   const esc = s => String(s ?? "").replace(/[&<>"']/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
   const cell = v => esc(v || "–");
-  const money = v => typeof v === "number" ? esc(v.toLocaleString("cs-CZ")) + " Kč" : cell(v);
+  const money = v => typeof v === "number" ? esc(v.toLocaleString("cs-CZ")) + " Kč" : esc(v);
+  const date = d => {
+    const m = /^(\d{4})-(\d{2})-(\d{2})$/.exec(d || "");
+    return m ? `${+m[3]}. ${+m[2]}. ${m[1]}` : esc(d || "bez data");
+  };
 
-  const offersTable = offers => offers.length ? `
-    <div class="table-wrap"><table>
-      <tr><th>Firma</th><th>Kontakt</th><th>Datum</th><th>Cena bez DPH</th><th>Cena s DPH</th><th>Záruka</th><th>Termín</th><th>Rozsah</th><th>Poznámka</th><th>Soubor</th></tr>
-      ${offers.map(o => `<tr>
-        <td>${cell(o.firma)}</td><td>${cell(o.kontakt)}</td><td>${cell(o.datum)}</td>
-        <td>${money(o.cenaBezDph)}</td><td>${money(o.cenaSDph)}</td>
-        <td>${cell(o.zaruka)}</td><td>${cell(o.termin)}</td><td>${cell(o.rozsah)}</td><td>${cell(o.poznamka)}</td>
-        <td>${o.soubor ? `<a href="${esc(o.soubor)}">otevřít</a>` : "–"}</td>
-      </tr>`).join("")}
-    </table></div>` : `<p class="empty">Zatím žádné nabídky.</p>`;
+  const summary = f => {
+    const rows = [
+      ["Kontakt", esc(f.kontakt)],
+      ["Cena bez DPH", money(f.cenaBezDph)],
+      ["Cena s DPH", money(f.cenaSDph)],
+      ["Záruka", esc(f.zaruka)],
+      ["Termín", esc(f.termin)],
+      ["Rozsah", esc(f.rozsah)],
+      ["Nabídka", f.soubor ? `<a href="${esc(f.soubor)}">otevřít</a>` : ""]
+    ].filter(([, v]) => v);
+    return rows.length ? `<dl class="summary">${rows.map(([k, v]) => `<dt>${k}</dt><dd>${v}</dd>`).join("")}</dl>` : "";
+  };
+
+  const historyHtml = f => {
+    const items = [...(f.historie || [])].sort((a, b) => (a.datum || "").localeCompare(b.datum || ""));
+    return `<h3>Historie jednání</h3>` + (items.length
+      ? `<ol class="timeline">${items.map(h => `<li><time>${date(h.datum)}</time><div>${esc(h.text)}</div></li>`).join("")}</ol>`
+      : `<p class="empty">Zatím žádné záznamy.</p>`);
+  };
+
+  const firmsBlock = p => {
+    const firms = p.firms || [];
+    if (!firms.length) return `<p class="empty">Zatím žádné firmy.</p>`;
+    return `
+      <div class="tabs" role="tablist">
+        ${firms.map(f => `<button role="tab" id="tab-${p.id}-${f.id}" aria-controls="panel-${p.id}-${f.id}"
+            data-project="${p.id}" data-firm="${f.id}">${esc(f.firma)}<span class="count">${(f.historie || []).length || ""}</span></button>`).join("")}
+      </div>
+      ${firms.map(f => `<div role="tabpanel" id="panel-${p.id}-${f.id}" aria-labelledby="tab-${p.id}-${f.id}" hidden>
+          ${summary(f)}${historyHtml(f)}
+        </div>`).join("")}`;
+  };
 
   const notesHtml = D.notes.length
     ? [...D.notes].sort((a, b) => b.datum.localeCompare(a.datum))
-        .map(n => `<div class="note"><time>${cell(n.datum)}</time><div>${cell(n.text)}</div></div>`).join("")
+        .map(n => `<div class="note"><time>${date(n.datum)}</time><div>${cell(n.text)}</div></div>`).join("")
     : `<p class="empty">Zatím žádné poznámky.</p>`;
 
   document.getElementById("app").innerHTML = `
     ${D.projects.map(p => `
-      <section>
+      <section id="${p.id}">
         <h2>${cell(p.title)}</h2>
         ${p.description ? `<p>${cell(p.description)}</p>` : ""}
-        ${offersTable(p.offers)}
+        ${firmsBlock(p)}
       </section>`).join("")}
     <section>
       <h2>Poznámky a aktualizace</h2>
       ${notesHtml}
     </section>`;
-  document.getElementById("updated").textContent = `Naposledy aktualizováno: ${D.updated}`;
+  document.getElementById("updated").textContent = `Naposledy aktualizováno: ${date(D.updated)}`;
+
+  // Tabs: one selected firm per project, remembered in the URL hash (#projekt=firma&...)
+  const state = Object.fromEntries(new URLSearchParams(location.hash.slice(1)));
+  const select = (projectId, firmId, save) => {
+    document.querySelectorAll(`[role=tab][data-project="${projectId}"]`).forEach(b => {
+      const on = b.dataset.firm === firmId;
+      b.setAttribute("aria-selected", on);
+      b.tabIndex = on ? 0 : -1;
+      document.getElementById(b.getAttribute("aria-controls")).hidden = !on;
+    });
+    if (save) { state[projectId] = firmId; history.replaceState(null, "", "#" + new URLSearchParams(state)); }
+  };
+  D.projects.forEach(p => {
+    const firms = p.firms || [];
+    if (firms.length) select(p.id, firms.some(f => f.id === state[p.id]) ? state[p.id] : firms[0].id, false);
+  });
+  document.addEventListener("click", e => {
+    const b = e.target.closest("[role=tab]");
+    if (b) select(b.dataset.project, b.dataset.firm, true);
+  });
+  document.addEventListener("keydown", e => {
+    const b = e.target.closest("[role=tab]");
+    if (!b || !["ArrowLeft", "ArrowRight"].includes(e.key)) return;
+    const all = [...document.querySelectorAll(`[role=tab][data-project="${b.dataset.project}"]`)];
+    const next = all[(all.indexOf(b) + (e.key === "ArrowRight" ? 1 : -1) + all.length) % all.length];
+    select(next.dataset.project, next.dataset.firm, true);
+    next.focus();
+  });
 </script>
 </body>
 </html>
