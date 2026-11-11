@@ -26,7 +26,7 @@ window.SITE_DATA = {
         },
         {
           firma: "IP Polná",
-          kontakt: "Lukáš Váňa, 725 260 992",
+          kontakt: "Lukáš Váka, 725 260 992",
           datum: "2026-11-11",
           poznamka: "11. 11.: ozve se, pak domluvíme schůzku"
         }
