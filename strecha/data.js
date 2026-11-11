@@ -22,7 +22,13 @@ window.SITE_DATA = {
           firma: "GLOBAL",
           kontakt: "p. Bílek, 602 740 841",
           historie: [
-            { datum: "2026-11-10", text: "Přijde změřit." }
+            { datum: "2026-11-10", text: "Přijde změřit." },
+            { datum: "2026-11-10", text: "Schůzka na místě:\n" +
+              "• Doporučují udělat projekt – kvůli dotacím nutnost. Projektanta případně zajistí.\n" +
+              "• Udělají položkový rozpočet, zdarma.\n" +
+              "• Část bednění je prý dobrá – měnili by jen asi metr u hřebene střechy, kde je špatné, + další lokální místa.\n" +
+              "• Měnila by se i část trámů.\n" +
+              "• Byla u toho i p. Strejčková, ukazovala jim mezonet. Tam se uvidí po odkrytí střechy. Když už tam nebyla, truhlář říkal, že je to velký špatný." }
           ]
         },
         {
