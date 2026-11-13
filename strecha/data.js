@@ -1,5 +1,5 @@
 window.SITE_DATA = {
-  updated: "2026-11-11",
+  updated: "2026-11-13",
   projects: [
     {
       id: "strecha",
@@ -44,7 +44,8 @@ window.SITE_DATA = {
           firma: "IP Polná",
           kontakt: "Lukáš Váka, 725 260 992",
           historie: [
-            { datum: "2026-11-11", text: "Ozve se, pak domluvíme schůzku." }
+            { datum: "2026-11-11", text: "Ozve se, pak domluvíme schůzku." },
+            { datum: "2026-11-13", text: "Schůzka bude 23. nebo 24. 11." }
           ]
         }
       ]
