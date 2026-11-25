@@ -1,5 +1,5 @@
 window.SITE_DATA = {
-  updated: "2026-11-13",
+  updated: "2026-11-25",
   projects: [
     {
       id: "strecha",
@@ -36,16 +36,18 @@ window.SITE_DATA = {
           firma: "Centrostav, a.s. (Jihlava)",
           kontakt: "Jan Frydrychovský, +420 773 501 983",
           historie: [
-            { datum: "2026-11-11", text: "Ozvou se. Pošlou někoho, kdo vyřeší akutní problémy před zimou a zároveň zaměří střechu, aby mohli udělat nabídku." }
+            { datum: "2026-11-11", text: "Ozvou se. Pošlou někoho, kdo vyřeší akutní problémy před zimou a zároveň zaměří střechu, aby mohli udělat nabídku." },
+            { datum: "2026-11-25", text: "30. 11. v 9:00 bude volat člověk z Centrostavu – domluvíme schůzku." }
           ]
         },
         {
           id: "ip-polna",
           firma: "IP Polná",
-          kontakt: "Lukáš Váka, 725 260 992",
+          kontakt: "kolega p. Váky, 725 260 914 (dříve Lukáš Váka, 725 260 992)",
           historie: [
             { datum: "2026-11-11", text: "Ozve se, pak domluvíme schůzku." },
-            { datum: "2026-11-13", text: "Schůzka bude 23. nebo 24. 11." }
+            { datum: "2026-11-13", text: "Schůzka bude 23. nebo 24. 11." },
+            { datum: "2026-11-25", text: "Pan Váka předal zakázku na kolegu, tel. 725 260 914. Schůzka domluvena na 30. 11. v 10:00." }
           ]
         }
       ]
